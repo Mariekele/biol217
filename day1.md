@@ -32,7 +32,9 @@ testing to sync
 
 **DAY2** 
 1. Quality control of raw reads (before proceeding further analyses)
-* `fastq` to get an overview
+* `fastq` to get an overview, quality control of the reads
+-> the reads are not perfect, you have to control
+-> Sequence Length of each read: 20-301
 #`mkdir -p day2`
 #`cd $WORK/day2`
 #`mkdir -p fastqc_output`
@@ -40,6 +42,9 @@ testing to sync
 -> `-o` putting the contents of the specific file to the folder, which was created before
 * `fastp` specify different input files: forwar (R1) and reverse (R2)
 -> command: fastp -i sample1_R1.fastq.gz -I sample1_R2.fastq.gz -o outdir/sample1_R1_clean.fastq.gz -O outdir/sample1_R2_clean.fastq.gz -t 6 -q 20 -h sample1.html -R "Sample 1 Fastp Report"
+-> with *20* in command we decide that we wanted to trimm everything below 20, but there was nothing
+-> we remove first 6 bases to remove the ?Begriff
+-> then some other naming things for us
 * 3x
 #mkdir -p fastp_output
 #fastp -i ../metagenomics/0_raw_reads/BGR_130305_mapped_R1.fastq.gz -I ../metagenomics/0_raw_reads/BGR_130305_mapped_R2.fastq.gz -o fastp_output/BGR_130305_fastp_cleaned_R1.fastq.gz -O fastp_output/BGR_130305_fastp_cleaned_R2.fastq.gz -t 6 -q 20 -h _130305.html -R _130305
@@ -50,7 +55,15 @@ testing to sync
 
 #genome assemmbly with megahit
 
-#megahit -1 fastp_output/BGR_130305_fastp_cleaned_R1.fastq.gz -1 fastp_output/BGR_130527_fastp_cleaned_R1.fastq.gz -1 fastp_output/BGR_130708_fastp_cleaned_R1.fastq.gz -2 fastp_output/BGR_130305_fastp_cleaned_R2.fastq.gz -2 fastp_output/BGR_130527_fastp_cleaned_R2.fastq.gz -2 fastp_output/BGR_130708_fastp_cleaned_R2.fastq.gz -o megahit_assemblies --min-contig-len 1000 --presets meta-large -m 0.85 -t 12        
+#megahit -1 fastp_output/BGR_130305_fastp_cleaned_R1.fastq.gz -1 fastp_output/BGR_130527_fastp_cleaned_R1.fastq.gz -1 fastp_output/BGR_130708_fastp_cleaned_R1.fastq.gz -2 fastp_output/BGR_130305_fastp_cleaned_R2.fastq.gz -2 fastp_output/BGR_130527_fastp_cleaned_R2.fastq.gz -2 fastp_output/BGR_130708_fastp_cleaned_R2.fastq.gz -o megahit_assemblies --min-contig-len 1000 --presets meta-large -m 0.85 -t 12 
+
+-> megahit puts the smaller sequences together, which fit together -> to get a longer sequence
+-> but with lumina reads its not that possible
+-> fasta like grpah was created from a normal fasta file -> useful for bandage
+-> In Bandage we see the visualization of the sequences we put together
+-> larger ones and smaller ones -> more reads were put together in the larger ones -> more likely correct and better quality
+-> now they can be used for more metagenomic work
+
 
 
 
