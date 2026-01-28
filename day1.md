@@ -118,27 +118,42 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
 
  2. Annotating ORFs
  -> with `anvi-run-hmms` searching for any potential biological functions that the predicted ORFs may have
- `anvi-run-hmms -c contigs_database.db --num-threads 4`
+ `anvi-run-hmms -c day3/contigs_database.db --num-threads 4`
 
  3. Visualizing the contigs database
- command: `anvi-display-contigs-stats day3/contigs_database.db`
+ command: `anvi-display-contigs-stats day3/contigs_database.db` -> **only in terminal not with bashscript!!!**
  
  4. Creating an `anvi'o` profile
+ -> like an upgraded `anvi'o` database hat can also store read mapping results and detailed per-nucleotide information
+ -> code:
+ `anvi-profile -i day3/BGR_130305_sort.bam -c day3/contigs_database.db --output-dir day3/sample1` 
+ `anvi-profile -i day3/BGR_130527_sort.bam -c day3/contigs_database.db --output-dir day3/sample2`
+ `anvi-profile -i day3/BGR_130708_sort.bam -c day3/contigs_database.db --output-dir day3/sample3`
 
+ 5. Merging `anvi'o` profiles from all samples
+ -> merge the 3 different samples to one profile to analyze and compare them
+ -> `--enforce-hierarchical-clustering`: Construct a phylogenetic tree that shows the relationships between the contigs.
 
+ 6. Binning contigs into genomes 
 
+ * **Using MetaBAT2**
 
-
-
-
-
-
-
-
+ * **Using MAxBin2**
 
 
 * How many A R C H A E A bins did you get from MetaBAT2?
 * How many A R C H A E A bins did you get from Maxbin2?
+
+4. Evaluating MAGs Quality
+-> evaluate how complete and pure each of the bin (MAG) is with `anvi-estimate-genome-completeness`
+-> command: ``
+-> and then to check what bin collections were generated:
+-> command: ``
+
+
+
+
+
 
 4. Estimate the quality of binned MAGs
 
