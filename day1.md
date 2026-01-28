@@ -151,13 +151,14 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
 
 
 * How many A R C H A E A bins did you get from MetaBAT2?
+-> `3`
 * How many A R C H A E A bins did you get from Maxbin2?
-
+-> `1`
 4. Evaluating MAGs Quality
 -> evaluate how complete and pure each of the bin (MAG) is with `anvi-estimate-genome-completeness`
--> command: ``
+-> command: `anvi-estimate-genome-completeness -c day3&contigs_database.db -p day3/to/merged_profiles/PROFILE.db -C METABAT2`
 -> and then to check what bin collections were generated:
--> command: ``
+-> command: `anvi-estimate-genome-completeness --list-collections -p day3/merged_profiles/PROFILE.db -c day3/contigs_databases.db`
 
 
 
