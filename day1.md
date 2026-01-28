@@ -91,7 +91,21 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
 command: `bowtie2-build day3/final.contigs.simplified.fa day3/contigs.anvio.fa.index`
 
 3. Mapping reads onto contigs
--> code: `bowtie2 -1 ? -2 ? -S ? -x ? --very-fast` 
+-> code: `bowtie2 -1 day2/fastp_output/BGR_130305_fastp_cleaned_R1.fastq.gz -2 day2/fastp_output/BGR_130305_fastp_cleaned_R2.fastq.gz -S day3/BGR_130305.sam -x day3/contigs.anvio.fa.index  --very-fast`
+
+`bowtie2 -1 day2/fastp_output/BGR_130527_fastp_cleaned_R1.fastq.gz -2 day2/fastp_output/BGR_130527_fastp_cleaned_R2.fastq.gz -S day3/BGR_130527.sam -x day3/contigs.anvio.fa.index  --very-fast` 
+
+`bowtie2 -1 day2/fastp_output/BGR_130708_fastp_cleaned_R1.fastq.gz -2 day2/fastp_output/BGR_130708_fastp_cleaned_R2.fastq.gz -S day3/BGR_130708.sam -x day3/contigs.anvio.fa.index  --very-fast`
+
+-> convert them into machine language -> make data processinf much faster:`Sequence Alignment Map (.sam) to Binary Alignment Map (.bam)`
+`samtools view -Sb day3/BGR_130305.sam > day3/BGR_130305.bam`
+`samtools view -Sb day3/BGR_130527.sam > day3/BGR_130527.bam`
+`samtools view -Sb day3/BGR_130708.sam > day3/BGR_130708.bam`
+
+ 4. Sorting mapped reads
+ -> speeds up data processing and allows to do downstream analyses like visualization and variant calling
+ -> with `anvi-init-bam` sort and indexes the `.bam` files in just one command
+
 
 
 
