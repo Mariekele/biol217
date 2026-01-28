@@ -67,7 +67,8 @@ testing to sync
 **DAY3**
 
 1. Check assembly quality
-`metaquast day2/megahit_assemblies/final.contigs.fa -o day3 -t 6 -m 1000`
+-> quast is a very informative QUality ASsessment Tool to evaluate genome assemblies
+code: `metaquast day2/megahit_assemblies/final.contigs.fa -o day3 -t 6 -m 1000`
 
 * What is your N50 value? Why is this value relevant?
 `3014` -> `a higher value shows a good genome assembling. So it stands for the quality.`
@@ -77,6 +78,10 @@ testing to sync
 `142642168 bp`
 
 2. Map sequencing reads to contigs
+-> Read mapping results allow us to check for contamination, classify taxa, identify incorrect binning, and more.
+-> first clean up the assembly and convert it into a more efficient format before map the reads onto it.
+-> Re-formatting the contigs: To simplify sequence IDs and filter out short contigs, we will use `anvi-script-reformat-fasta`
+
 
 3. Bin contigs into genomes (MAGs) based on read mapping
 
