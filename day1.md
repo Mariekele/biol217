@@ -67,11 +67,14 @@ testing to sync
 **DAY3**
 
 1. Check assembly quality
+`metaquast day2/megahit_assemblies/final.contigs.fa -o day3 -t 6 -m 1000`
 
 * What is your N50 value? Why is this value relevant?
+`3014` -> `a higher value shows a good genome assembling. So it stands for the quality.`
 * How many contigs are assembled?
+`55835`
 * What is the total length of the contigs?
-
+`142642168 bp`
 
 2. Map sequencing reads to contigs
 
