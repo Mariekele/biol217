@@ -86,21 +86,21 @@ code: `metaquast day2/megahit_assemblies/final.contigs.fa -o day3 -t 6 -m 1000`
 code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o day3/final.contigs.simplified.fa --min-len 1000 --simplify-names --report-file day3/table.txt`
 
  2. Indexing the contigs
--> after organzied and indexed contigs, the mapping runs faster
--> Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.
-command: `bowtie2-build day3/final.contigs.simplified.fa day3/contigs.anvio.fa.index`
+ -> after organzied and indexed contigs, the mapping runs faster
+ -> Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.
+ command: `bowtie2-build day3/final.contigs.simplified.fa day3/contigs.anvio.fa.index`
 
-3. Mapping reads onto contigs
--> code: `bowtie2 -1 day2/fastp_output/BGR_130305_fastp_cleaned_R1.fastq.gz -2 day2/fastp_output/BGR_130305_fastp_cleaned_R2.fastq.gz -S day3/BGR_130305.sam -x day3/contigs.anvio.fa.index  --very-fast`
+ 3. Mapping reads onto contigs
+ -> code: `bowtie2 -1 day2/fastp_output/BGR_130305_fastp_cleaned_R1.fastq.gz -2 day2/fastp_output/BGR_130305_fastp_cleaned_R2.fastq.gz -S day3/BGR_130305.sam -x day3/contigs.anvio.fa.index  --very-fast`
 
-`bowtie2 -1 day2/fastp_output/BGR_130527_fastp_cleaned_R1.fastq.gz -2 day2/fastp_output/BGR_130527_fastp_cleaned_R2.fastq.gz -S day3/BGR_130527.sam -x day3/contigs.anvio.fa.index  --very-fast` 
+ `bowtie2 -1 day2/fastp_output/BGR_130527_fastp_cleaned_R1.fastq.gz -2 day2/fastp_output/BGR_130527_fastp_cleaned_R2.fastq.gz -S day3/BGR_130527.sam -x day3/contigs.anvio.fa.index  --very-fast` 
 
-`bowtie2 -1 day2/fastp_output/BGR_130708_fastp_cleaned_R1.fastq.gz -2 day2/fastp_output/BGR_130708_fastp_cleaned_R2.fastq.gz -S day3/BGR_130708.sam -x day3/contigs.anvio.fa.index  --very-fast`
+ `bowtie2 -1 day2/fastp_output/BGR_130708_fastp_cleaned_R1.fastq.gz -2 day2/fastp_output/BGR_130708_fastp_cleaned_R2.fastq.gz -S day3/BGR_130708.sam -x day3/contigs.anvio.fa.index  --very-fast`
 
--> convert them into machine language -> make data processinf much faster:`Sequence Alignment Map (.sam) to Binary Alignment Map (.bam)`
-`samtools view -Sb day3/BGR_130305.sam > day3/BGR_130305.bam`
-`samtools view -Sb day3/BGR_130527.sam > day3/BGR_130527.bam`
-`samtools view -Sb day3/BGR_130708.sam > day3/BGR_130708.bam`
+ -> convert them into machine language -> make data processinf much faster:`Sequence Alignment Map (.sam) to Binary Alignment Map (.bam)`
+ `samtools view -Sb day3/BGR_130305.sam > day3/BGR_130305.bam`
+ `samtools view -Sb day3/BGR_130527.sam > day3/BGR_130527.bam`
+ `samtools view -Sb day3/BGR_130708.sam > day3/BGR_130708.bam`
 
  4. Sorting mapped reads
  -> speeds up data processing and allows to do downstream analyses like visualization and variant calling
@@ -114,6 +114,26 @@ command: `bowtie2-build day3/final.contigs.simplified.fa day3/contigs.anvio.fa.i
 -> to figure out which microbes are present in the samples
  1. Generating contigs database
  `anvi-gen-contigs-database` to store many types of information; compute k-mer frequencies for each contig; Soft-split contigs longer than 20,000 nucleotides into smaller ones; dentify open reading frames (ORFs) using Prodigal (a program for predicting genes in bacteria and Archaea)
+ `anvi-gen-contigs-database -f day3/final.contigs.simplified.fa -o day3/contigs_database.db -n projectday3`
+
+ 2. Annotating ORFs
+ -> with `anvi-run-hmms` searching for any potential biological functions that the predicted ORFs may have
+
+
+
+
+ 3. Visualizing the contigs database
+ command: `anvi-display-contigs-stats day3/contigs_database.db`
+ 
+ 4. Creating an `anvi'o` profile
+
+ 
+
+
+
+
+
+
 
 
 
