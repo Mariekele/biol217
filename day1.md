@@ -64,6 +64,28 @@ testing to sync
 -> larger ones and smaller ones -> more reads were put together in the larger ones -> more likely correct and better quality
 -> now they can be used for more metagenomic work
 
+**DAY3**
+
+1. Check assembly quality
+
+* What is your N50 value? Why is this value relevant?
+* How many contigs are assembled?
+* What is the total length of the contigs?
+
+
+2. Map sequencing reads to contigs
+
+3. Bin contigs into genomes (MAGs) based on read mapping
+
+* How many A R C H A E A bins did you get from MetaBAT2?
+* How many A R C H A E A bins did you get from Maxbin2?
+
+4. Estimate the quality of binned MAGs
+
+* Which binning strategy gives you the best quality for the A R C H A E A bins?
+* How many A R C H A E A bins do you get that are of High quality?
+* How many B A C T E R I A bins do you get that are of High quality?
+
 
 
 
