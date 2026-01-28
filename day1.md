@@ -105,6 +105,9 @@ command: `bowtie2-build day3/final.contigs.simplified.fa day3/contigs.anvio.fa.i
  4. Sorting mapped reads
  -> speeds up data processing and allows to do downstream analyses like visualization and variant calling
  -> with `anvi-init-bam` sort and indexes the `.bam` files in just one command
+ `anvi-init-bam day3/BGR_130305.bam -o day3/BGR_130305_sort.bam`
+ `anvi-init-bam day3/BGR_130527.bam -o day3/BGR_130527_sort.bam` 
+ `anvi-init-bam day3/BGR_130708.bam -o day3/BGR_130708_sort.bam`
 
 
 
