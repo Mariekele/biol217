@@ -137,7 +137,7 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
  `anvi-merge day3/sample1/PROFILE.db day3/sample2/PROFILE.db day3/sample3/PROFILE.db -o day3/merged_profiles -c day3/contigs_database.db --enforce-hierarchical-clustering`
 
  6. Binning contigs into genomes 
--> using the excat same commands for both, just exchanging `METABAT2` and `MaxBin2` 
+ -> using the excat same commands for both, just exchanging `METABAT2` and `MaxBin2` 
  * **Using MetaBAT2**
  `-p` merged profile follows
  `-c` contigs database follows
