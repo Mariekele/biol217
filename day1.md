@@ -122,6 +122,7 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
 
  3. Visualizing the contigs database
  command: `anvi-display-contigs-stats day3/contigs_database.db` -> **only in terminal not with bashscript!!!**
+ -> **Bild nochmal runterladen**
  
  4. Creating an `anvi'o` profile
  -> like an upgraded `anvi'o` database hat can also store read mapping results and detailed per-nucleotide information
@@ -133,15 +134,20 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
  5. Merging `anvi'o` profiles from all samples
  -> merge the 3 different samples to one profile to analyze and compare them
  -> `--enforce-hierarchical-clustering`: Construct a phylogenetic tree that shows the relationships between the contigs.
-`anvi-merge day3/sample1/PROFILE.db day3/sample2/PROFILE.db day3/sample3/PROFILE.db -o day3/merged_profiles -c day3/contigs_database.db --enforce-hierarchical-clustering`
-
-
+ `anvi-merge day3/sample1/PROFILE.db day3/sample2/PROFILE.db day3/sample3/PROFILE.db -o day3/merged_profiles -c day3/contigs_database.db --enforce-hierarchical-clustering`
 
  6. Binning contigs into genomes 
-
+-> using the excat same commands for both, just exchanging `METABAT2` and `MaxBin2` 
  * **Using MetaBAT2**
+ `-p` merged profile follows
+ `-c` contigs database follows
+ 
+ `anvi-cluster-contigs -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -C METABAT2 --driver metabat2 --log-file day3/metabat2_logfile --just-do-it anvi-summarize -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -o day3/metabat2_sum -C METABAT2`
 
- * **Using MAxBin2**
+
+ * **Using MaxBin2**
+
+ `anvi-cluster-contigs -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -C MAXBIN2 --driver maxbin2 --log-file day3/maxbin2_logfile --just-do-it anvi-summarize -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -o day3/maxbin2_sum -C MAXBIN2`
 
 
 * How many A R C H A E A bins did you get from MetaBAT2?
