@@ -110,9 +110,14 @@ command: `bowtie2-build day3/final.contigs.simplified.fa day3/contigs.anvio.fa.i
  `anvi-init-bam day3/BGR_130708.bam -o day3/BGR_130708_sort.bam`
 
 
-
-
 3. Bin contigs into genomes (MAGs) based on read mapping
+-> to figure out which microbes are present in the samples
+ 1. Generating contigs database
+ `anvi-gen-contigs-database` to store many types of information; compute k-mer frequencies for each contig; Soft-split contigs longer than 20,000 nucleotides into smaller ones; dentify open reading frames (ORFs) using Prodigal (a program for predicting genes in bacteria and Archaea)
+
+
+
+
 
 * How many A R C H A E A bins did you get from MetaBAT2?
 * How many A R C H A E A bins did you get from Maxbin2?
