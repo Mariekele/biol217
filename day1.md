@@ -122,7 +122,9 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
 
  3. Visualizing the contigs database
  command: `anvi-display-contigs-stats day3/contigs_database.db` -> **only in terminal not with bashscript!!!**
- -> **Bild nochmal runterladen**
+ -> **Archea:**
+ -> **Bacteria:**
+ -> **Protista:**
  
  4. Creating an `anvi'o` profile
  -> like an upgraded `anvi'o` database hat can also store read mapping results and detailed per-nucleotide information
