@@ -71,7 +71,9 @@ testing to sync
 code: `metaquast day2/megahit_assemblies/final.contigs.fa -o day3 -t 6 -m 1000`
 
 * What is your N50 value? Why is this value relevant?
-`3014` -> `a higher value shows a good genome assembling. So it stands for the quality.`
+`3014` -> `a higher value shows a good genome assembling. So it stands for the quality. The higher the value the fewer and longer the reads are. The genome is more complete (?)`
+-> the bigger the number more material is covered by longer contigs
+-> 3000 is very fragmentet
 * How many contigs are assembled?
 `55835`
 * What is the total length of the contigs?
@@ -80,7 +82,17 @@ code: `metaquast day2/megahit_assemblies/final.contigs.fa -o day3 -t 6 -m 1000`
 2. Map sequencing reads to contigs
 -> Read mapping results allow us to check for contamination, classify taxa, identify incorrect binning, and more.
 -> first clean up the assembly and convert it into a more efficient format before map the reads onto it.
--> Re-formatting the contigs: To simplify sequence IDs and filter out short contigs, we will use `anvi-script-reformat-fasta`
+ 1. Re-formatting the contigs: To simplify sequence IDs and filter out short contigs, we will use `anvi-script-reformat-fasta`
+code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o day3/final.contigs.simplified.fa --min-len 1000 --simplify-names --report-file day3/table.txt`
+
+ 2. Indexing the contigs
+-> after organzied and indexed contigs, the mapping runs faster
+-> Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.
+command: `bowtie2-build day3/final.contigs.simplified.fa day3/contigs.anvio.fa.index`
+
+3. Mapping reads onto contigs
+-> code: `bowtie2 -1 ? -2 ? -S ? -x ? --very-fast` 
+
 
 
 3. Bin contigs into genomes (MAGs) based on read mapping
