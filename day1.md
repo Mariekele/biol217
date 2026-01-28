@@ -118,16 +118,14 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
 
  2. Annotating ORFs
  -> with `anvi-run-hmms` searching for any potential biological functions that the predicted ORFs may have
-
-
-
+ `anvi-run-hmms -c contigs_database.db --num-threads 4`
 
  3. Visualizing the contigs database
  command: `anvi-display-contigs-stats day3/contigs_database.db`
  
  4. Creating an `anvi'o` profile
 
- 
+
 
 
 
