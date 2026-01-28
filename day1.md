@@ -133,6 +133,9 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
  5. Merging `anvi'o` profiles from all samples
  -> merge the 3 different samples to one profile to analyze and compare them
  -> `--enforce-hierarchical-clustering`: Construct a phylogenetic tree that shows the relationships between the contigs.
+`anvi-merge day3/sample1/PROFILE.db day3/sample2/PROFILE.db day3/sample3/PROFILE.db -o day3/merged_profiles -c day3/contigs_database.db --enforce-hierarchical-clustering`
+
+
 
  6. Binning contigs into genomes 
 
