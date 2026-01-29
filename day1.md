@@ -257,8 +257,21 @@ Aim: Examine the bins from day3 and improve their quality
  * In your own words, briefly explain what a chimeric bin is
  -> it means that some parts are falsy connected together, which do not really belong together. Reads of different organisms were put together and are giving wrong connections.
 
+3. Manual bin refinement
+-> As large metagenome assemblies can result in hundreds of bins, pre-select some of the better ones for manual refinement, e.g., > 70% completeness
 
+-> first create a copy to avoid to destroy important data
+`cp day3/merged_profiles/PROFILE.db day4/PROFILE_refined.db`
 
+now `anvi-refine` to work on my bins manually
+
+command: `anvi-refine -c day3/contigs_database.db -p day4/PROFILE_refined.db --bin-id METABAT__7 -C METABAT2` 
+
+`anvi-refine -c day3/contigs_database.db -p day4/PROFILE_refined.db --bin-id METABAT__27 -C METABAT2`
+
+`anvi-refine -c day3/contigs_database.db -p day4/PROFILE_refined.db --bin-id METABAT__36 -C METABAT2`
+
+-> Screenshots after sorting for GC content mean
 
 
 
