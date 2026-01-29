@@ -144,24 +144,31 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
  `-p` merged profile follows
  `-c` contigs database follows
  
- `anvi-cluster-contigs -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -C METABAT2 --driver metabat2 --log-file day3/metabat2_logfile --just-do-it anvi-summarize -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -o day3/metabat2_sum -C METABAT2`
+ `anvi-cluster-contigs -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -C METABAT2 --driver metabat2 --log-file day3/metabat2_logfile --just-do-it` 
+
+ `anvi-summarize -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -o day3/metabat2_sum -C METABAT2`
 
 
  * **Using MaxBin2**
 
- `anvi-cluster-contigs -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -C MAXBIN2 --driver maxbin2 --log-file day3/maxbin2_logfile --just-do-it anvi-summarize -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -o day3/maxbin2_sum -C MAXBIN2`
+ `anvi-cluster-contigs -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -C MAXBIN2 --driver maxbin2 --log-file day3/maxbin2_logfile --just-do-it` 
+ 
+ `anvi-summarize -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -o day3/maxbin2_sum -C MAXBIN2`
 
 
+-> data can be found in the `.html` file
 * How many A R C H A E A bins did you get from MetaBAT2?
 -> `3`
 * How many A R C H A E A bins did you get from Maxbin2?
 -> `1`
+
+
+
 4. Evaluating MAGs Quality
 -> evaluate how complete and pure each of the bin (MAG) is with `anvi-estimate-genome-completeness`
 -> command: `anvi-estimate-genome-completeness -c day3&contigs_database.db -p day3/to/merged_profiles/PROFILE.db -C METABAT2`
 -> and then to check what bin collections were generated:
 -> command: `anvi-estimate-genome-completeness --list-collections -p day3/merged_profiles/PROFILE.db -c day3/contigs_databases.db`
-
 
 
 
