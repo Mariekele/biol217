@@ -221,5 +221,19 @@ Aim: Examine the bins from day3 and improve their quality
  
  `gunc run -i day4/METABAT__7/METABAT__7-contigs.fa -r $WORK/databases/gunc/gunc_db_progenomes2.1.dmnd --out_dir day4/METABAT__7/gunc_out_7 --detailed_output --threads 12`
 
+ 2. Creating interactive plots of the chimeras
+ -> so in the step before we runned the chimera detection and now we are going to visualize the results in a plot
+
+ `gunc plot -d day4/METABAT__7/gunc_out_7/diamond_output/METABAT__7-contigs.diamond.progenomes_2.1.out -g day4/METABAT__7/gunc_out_7/gene_calls/gene_counts.json --out_dir day4/METABAT__7/gunc_out_7`
+ 
+ `gunc plot -d day4/METABAT__36/gunc_out_36/diamond_output/METABAT__36-contigs.diamond.progenomes_2.1.out -g day4/METABAT__36/gunc_out_36/gene_calls/gene_counts.json --out_dir day4/METABAT__36/gunc_out_36`
+
+ `gunc plot -d day4/METABAT__27/gunc_out_27/diamond_output/METABAT__27-contigs.diamond.progenomes_2.1.out -g day4/METABAT__27/gunc_out_27/gene_calls/gene_counts.json --out_dir day4/METABAT__27/gunc_out_27`
+
+
+
+
+
+
 
 
