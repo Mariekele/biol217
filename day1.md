@@ -185,8 +185,41 @@ command: `anvi-interactive -p day3/merged_profiles/PROFILE.db -c day3/contigs_da
 * How many B A C T E R I A bins do you get that are of High quality?
 -> 12 of good quality
 
-**DAY4**
+conclusion: on day3 we binned assembled contigs into genome bins and checked the bins to see if they represent bacteria or Archaea.
 
+**DAY4**
+Aim: Examine the bins from day3 and improve their quality
+
+1. Evaluating MAGs Quality -> did it on day3
+2. Refining Archaea bins
+ -> work with a copy of the data, but first find the bins  which contains the Archaea
+ -> METABAT__27
+ -> METABAT__36
+ -> METABAT__7
+ then copy them into day4:
+ `cp -r day3/metabat2_sum/bin_by_bin/METABAT__27 day4`
+ `cp -r day3/metabat2_sum/bin_by_bin/METABAT__36 day4`
+ `cp -r day3/metabat2_sum/bin_by_bin/METABAT__7 day4`
+
+ now refine them:
+ day4/
+└── refine/
+    ├── METABAT__27/
+    │   └── METABAT__27-contigs.fa
+    ├── METABAT__36/
+    │   └── METABAT__36-contigs.fa
+    └── METABAT__7/
+        └── METABAT__7-contigs.fa
+
+ 1. Detecting chimeras in MAGs
+ -> with **GUNC** checking for chimeras and potential contamination **(Chimeric genomes are genomes wrongly assembled out of two or more genomes coming from seperate organisms)**
+ -> chaning environment to `00_gunc` and making directoires to store the output and then run to check:
+ commands: 
+ `gunc run -i day4/METABAT__27/METABAT__27-contigs.fa -r $WORK/databases/gunc/gunc_db_progenomes2.1.dmnd --out_dir day4/METABAT__27/gunc_out_27 --detailed_output --threads 12`
+ 
+ `gunc run -i day4/METABAT__36/METABAT__36-contigs.fa -r $WORK/databases/gunc/gunc_db_progenomes2.1.dmnd --out_dir day4/METABAT__36/gunc_out_36 --detailed_output --threads 12`
+ 
+ `gunc run -i day4/METABAT__7/METABAT__7-contigs.fa -r $WORK/databases/gunc/gunc_db_progenomes2.1.dmnd --out_dir day4/METABAT__7/gunc_out_7 --detailed_output --threads 12`
 
 
 
