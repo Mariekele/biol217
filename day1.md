@@ -156,7 +156,7 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
  `anvi-summarize -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -o day3/maxbin2_sum -C MAXBIN2`
 
 
--> data can be found in the `.html` file
+-> data can be seen in the `.html` file, but each of the **MAGs** have one `fasta`file.
 * How many A R C H A E A bins did you get from MetaBAT2?
 -> `3`
 * How many A R C H A E A bins did you get from Maxbin2?
@@ -165,6 +165,7 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
 
 
 4. Evaluating MAGs Quality
+for the following steps only bins generated from **MetaBAT2** is used
 -> evaluate how complete and pure each of the bin (MAG) is with `anvi-estimate-genome-completeness`
 -> command: `anvi-estimate-genome-completeness -c day3&contigs_database.db -p day3/to/merged_profiles/PROFILE.db -C METABAT2`
 -> and then to check what bin collections were generated:
