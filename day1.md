@@ -179,7 +179,7 @@ command: `anvi-interactive -p day3/merged_profiles/PROFILE.db -c day3/contigs_da
 
 
 * Which binning strategy gives you the best quality for the A R C H A E A bins?
--> MetBat is better because there are 3 archaea and one of them has a good quality, but in MaxBin theres only one archaea which hasn´t a good quality
+-> MetBat is better because there are 3 archaea and one of them has a good quality, but in MaxBin theres only one archaea which hasn´t a good quality because of the high Redundance -> **the best Archaea is in METBAT__27**
 * How many A R C H A E A bins do you get that are of High quality?
 -> I get one archaea of a good quality
 * How many B A C T E R I A bins do you get that are of High quality?
@@ -268,15 +268,69 @@ now `anvi-refine` to work on my bins manually
 command: `anvi-refine -c day3/contigs_database.db -p day4/PROFILE_refined.db --bin-id METABAT__7 -C METABAT2` 
 
 `anvi-refine -c day3/contigs_database.db -p day4/PROFILE_refined.db --bin-id METABAT__27 -C METABAT2`
+-> **using only that one**
 
 `anvi-refine -c day3/contigs_database.db -p day4/PROFILE_refined.db --bin-id METABAT__36 -C METABAT2`
 
 -> Screenshots after sorting for content mean
 
 **Questions:**
-How much could you improve the quality of your A R C H A  E A ?
+* How much could you improve the quality of your A R C H A  E A ?
   Compare the completeness and redundance of the bin before and after refining.
--> 
+->  ?????
+
+4. Visualizing Coverage
+-> to see how abundant the Archaea MAGs really are
+
+`anvi-interactive -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -C METABAT2`
+
+-> only looking for 27:
+Item Name	METABAT__27
+Layer Name	source
+length	1820850
+gc_content	0.5938968850137224
+BGR_130305_sort	8.012879472552424
+BGR_130527_sort	5.2168197907991685
+BGR_130708_sort	3.48495948804213
+percent_completion	98.6842105263158
+percent_redundancy	2.6315789473684212
+matching_domain	archaea (1.0)
+bin_name	METABAT__27
+source	metabat2
+
+-> for 7:
+Item Name	METABAT__7
+Layer Name	source
+length	446145
+gc_content	0.4370266251731875
+BGR_130305_sort	3.855132063770183
+BGR_130527_sort	0.04694284515131497
+BGR_130708_sort	2.3668113692812196
+percent_completion	38.1578947368421
+percent_redundancy	0
+matching_domain	blank (0.3)
+bin_name	METABAT__7
+source	metabat2
+
+-> for 36:
+Item Name	METABAT__36
+Layer Name	source
+length	1317425
+gc_content	0.5990973899156462
+BGR_130305_sort	3.7029119659339633
+BGR_130527_sort	1.2675120674322242
+BGR_130708_sort	2.3894890684267542
+percent_completion	48.68421052631579
+percent_redundancy	9.210526315789474
+matching_domain	blank (0.5)
+bin_name	METABAT__36
+source	metabat2
+
+
+
+**Questions:**
+* How abundant (relatively) are the A r c h a e a bins in the 3 samples?
+-> ?????
 
 
 
