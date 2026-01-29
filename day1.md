@@ -225,10 +225,37 @@ Aim: Examine the bins from day3 and improve their quality
  -> so in the step before we runned the chimera detection and now we are going to visualize the results in a plot
 
  `gunc plot -d day4/METABAT__7/gunc_out_7/diamond_output/METABAT__7-contigs.diamond.progenomes_2.1.out -g day4/METABAT__7/gunc_out_7/gene_calls/gene_counts.json --out_dir day4/METABAT__7/gunc_out_7`
- 
+
  `gunc plot -d day4/METABAT__36/gunc_out_36/diamond_output/METABAT__36-contigs.diamond.progenomes_2.1.out -g day4/METABAT__36/gunc_out_36/gene_calls/gene_counts.json --out_dir day4/METABAT__36/gunc_out_36`
 
  `gunc plot -d day4/METABAT__27/gunc_out_27/diamond_output/METABAT__27-contigs.diamond.progenomes_2.1.out -g day4/METABAT__27/gunc_out_27/gene_calls/gene_counts.json --out_dir day4/METABAT__27/gunc_out_27`
+ 
+ **Questions:**
+ *  Do you get A R C H A E A bins that are chimeric?
+ H i n t : Look at the CSS score and the column "PASS GUNC" in the gunc output tables for each bin.
+ 
+ `clade_separation_score(CSS):` a result of applying a formula explained in GUNC paper to taxonomy and contig labels of genes retained in major clades. Ranges from 0 to 1 and is set to 0 when genes_retained index is <0.4 because that is too few genes left.
+ -> if its high, so above 0.45 its a hint for beeing chimeric
+ 
+ `pass.GUNC:` If a genome passes GUNC analysis it means it is likely to not be chimeric (or that chimerism cannot be detected especially when its reference representation (RRS) is low). A genome passes if clade_separation_score <= 0.45, a cutoff benchmarked using simulated genomes.
+
+
+ -> `Metabat7:`
+ SSC: is 0 everywhere except in species taxonomic level there is it 0.1 -> means its not chimeric 
+ -> gunc analyses passes everywhere so it is likely to not be chimeric in any way
+
+ -> `Metabat36:`
+ SSC: is 0 everywhere except in species ther it is 0.78 which means it is likely to be chimeric
+ -> gunc analyses only fails in taxonomic level of species and passes everywhere else -> means only the species are different
+
+ -> `Metbat7:`
+ SSC: is 1 in every taxonomic level except in species theres 0.4
+ -> and only in species it passes the gunc analyses which means it is likely to not be chimeric or it can´t be detected
+ -> both outputs are connected
+
+
+ * In your own words, briefly explain what a chimeric bin is
+ -> it means that some parts are falsy connected together, which do not really belong together. Reads of different organisms were put together and are giving wrong connections.
 
 
 
