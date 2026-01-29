@@ -179,8 +179,13 @@ command: `anvi-interactive -p day3/merged_profiles/PROFILE.db -c day3/contigs_da
 
 
 * Which binning strategy gives you the best quality for the A R C H A E A bins?
+-> MetBat is better because there are 3 archaea and one of them has a good quality, but in MaxBin theres only one archaea which hasn´t a good quality
 * How many A R C H A E A bins do you get that are of High quality?
+-> I get one archaea of a good quality
 * How many B A C T E R I A bins do you get that are of High quality?
+-> 12 of good quality
+
+**DAY4**
 
 
 
