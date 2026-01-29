@@ -167,15 +167,16 @@ code: `anvi-script-reformat-fasta day2/megahit_assemblies/final.contigs.fa -o da
 4. Evaluating MAGs Quality
 for the following steps only bins generated from **MetaBAT2** is used
 -> evaluate how complete and pure each of the bin (MAG) is with `anvi-estimate-genome-completeness`
--> command: `anvi-estimate-genome-completeness -c day3&contigs_database.db -p day3/to/merged_profiles/PROFILE.db -C METABAT2`
+-> command: `anvi-estimate-genome-completeness -c day3/contigs_database.db -p day3/to/merged_profiles/PROFILE.db -C METABAT2`
 -> and then to check what bin collections were generated:
--> command: `anvi-estimate-genome-completeness --list-collections -p day3/merged_profiles/PROFILE.db -c day3/contigs_databases.db`
-
-
-
-
+-> command: `anvi-estimate-genome-completeness --list-collections -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db`
 
 4. Estimate the quality of binned MAGs
+
+command: `anvi-interactive -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -C METABAT2`
+-> `anvi-interactive` to manually inspect and work on the bins
+
+
 
 * Which binning strategy gives you the best quality for the A R C H A E A bins?
 * How many A R C H A E A bins do you get that are of High quality?
