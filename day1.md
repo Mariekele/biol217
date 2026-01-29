@@ -271,7 +271,14 @@ command: `anvi-refine -c day3/contigs_database.db -p day4/PROFILE_refined.db --b
 
 `anvi-refine -c day3/contigs_database.db -p day4/PROFILE_refined.db --bin-id METABAT__36 -C METABAT2`
 
--> Screenshots after sorting for GC content mean
+-> Screenshots after sorting for content mean
+
+**Questions:**
+How much could you improve the quality of your A R C H A  E A ?
+  Compare the completeness and redundance of the bin before and after refining.
+-> 
+
+
 
 
 
