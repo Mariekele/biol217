@@ -277,7 +277,23 @@ command: `anvi-refine -c day3/contigs_database.db -p day4/PROFILE_refined.db --b
 **Questions:**
 * How much could you improve the quality of your A R C H A  E A ?
   Compare the completeness and redundance of the bin before and after refining.
-->  ?????
+  -> **in the plot:**
+->  Domain	Domain Confidence	HMM Source	Completion	Redundancy
+✓	archaea	0.98	Archaea_76	98.68%	2.63%
+-> **in the .html:**
+Bin METABAT__27
+Source metabat2 
+Taxonomy N/A 
+Total Size 1.82Mb
+Num Contigs 262 
+N50 8,484
+GC Content 59.39%
+Compl. 98.68%
+Red. 	2.63% 
+SCG Domain archaea
+
+-> **nothing changed between before and after refining**
+
 
 4. Visualizing Coverage
 -> to see how abundant the Archaea MAGs really are
@@ -330,7 +346,13 @@ source	metabat2
 
 **Questions:**
 * How abundant (relatively) are the A r c h a e a bins in the 3 samples?
--> ?????
+-> Only METABAT__27 is archaeal.
+Relative abundance across samples:
+
+BGR_130305 > BGR_130527 > BGR_130708
+(≈ 48%, 31%, 21%, respectively)
+
+Bins 7 and 36 aren’t confidently archaeal.
 
 
 
