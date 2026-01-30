@@ -392,8 +392,19 @@ commands:
 * hint: MIMAG quality tiers https://www.nature.com/articles/nbt.3893
 
 2. Genome dereplication (BONUS)
+-> `anvi-dereplicate-genome` will use `fastANI` to perform the dereplication. It calculates the `Average Nucleotide Identity`, its faster than the `piANI`. And its going to remove the bacteria of the archaea.
 
 
+
+
+
+
+
+* How many species do you have in the dataset?
+->
+
+* Try to dereplicate again at 90% identity then at 80%identity. In your own words, explain the differences between the different %identities.
+-> 
 
 
 
