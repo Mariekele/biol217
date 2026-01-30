@@ -390,7 +390,7 @@ commands:
 *  Did you get a species assignment to the A R C H A E A bins previously identified?
 -> yep
 -> Metabat__27: Methanocellus sp012797575 -> so we found out the genus, but not the specific species
--> Metabat__26: Methanocellus thermohydrogenotrophicum -> so we found out the exact species
+-> Metabat__26: Methanocellus thermohydrogenotrophicum -> so we found out the exact species -> **The High-quality bin**
 -> Metabat__7: Methanosarcina flavescens -> so we found out the exact species
 
 * Does the HIGH-QUALITY assignment of the bin need revision?
