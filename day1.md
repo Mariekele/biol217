@@ -64,6 +64,9 @@ testing to sync
 -> larger ones and smaller ones -> more reads were put together in the larger ones -> more likely correct and better quality
 -> now they can be used for more metagenomic work
 
+
+-> [picture](Mariekele/biol127/image.png)
+
 **DAY3**
 
 1. Check assembly quality
