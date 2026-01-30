@@ -394,17 +394,28 @@ commands:
 2. Genome dereplication (BONUS)
 -> `anvi-dereplicate-genome` will use `fastANI` to perform the dereplication. It calculates the `Average Nucleotide Identity`, its faster than the `piANI`. And its going to remove the bacteria of the archaea.
 
+-> i created tabfile.csv:
+27	METABAT__27	METABAT2	day3/merged_profiles/PROFILE.db	day3/contigs_database.db	day4/METABAT__27/METABAT__27-contigs.fa
+7	METABAT__7	METABAT2	day3/merged_profiles/PROFILE.db	day3/contigs_database.db	day4/METABAT__7/METABAT__7-contigs.fa
+36	METABAT__36	METABAT2	day3/merged_profiles/PROFILE.db	day3/contigs_database.db	day4/METABAT__36/METABAT__36-contigs.fa
 
 
+command: `anvi-dereplicate-genomes -i tabfile.csv --program fastANI --similarity-threshold 0.95 -o ANI --log-file log_ANI -T 10`
+but that was only for the archaea
 
-
+#anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-threshold 0.95 -o ANI2 --log-file log_ANI -T 10 --force-overwrite
+#anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-threshold 0.90 -o ANI90 --log-file log_ANI -T 10 --force-overwrite
+#anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-threshold 0.80 -o ANI80 --log-file log_ANI -T 10 --force-overwrite
+-> for every bin. 95% identity, 90% identity, 80% identity
 
 
 * How many species do you have in the dataset?
-->
+-> 46 species
 
 * Try to dereplicate again at 90% identity then at 80%identity. In your own words, explain the differences between the different %identities.
--> 
+-> nothing changes with 95% and 90% identity. But with 80% I got only 44 species. When I look into the Cluster report it is shown that 2 species are the same. Its bin27 and bin36 which were the archaea. They were actually from the same genus. So why do we get different bins, maybe its because some contigs were falsley compared together or maybe because the binning isnt looking for the nucelotids. They just looking for the k-mers and so...
+And bin14 and bin42 which where unnamed bacteria.
+
 
 
 
