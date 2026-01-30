@@ -355,6 +355,47 @@ BGR_130305 > BGR_130527 > BGR_130708
 Bins 7 and 36 aren’t confidently archaeal.
 
 
+**DAY5**
+
+1. Taxonomic assignment
+-> adding taxonomic annotations to the MAGs
+`anvi-run-scg-taxonomy`:  associates the single-copy core genes in the contigs-db with taxnomy information. 
+
+command: `anvi-run-scg-taxonomy -c day3/contigs_database.db -T 20 -P 2`
+
+-> This program makes quick taxonomy estimates for genomes, metagenomes, or bins stored in your contigs-db using single-copy core genes. But using the program in metagenome-mode, because the contigs contain multiple genomes
+
+commands:
+-> to estimate abundance of Ribisomal RNAs within the dataset: for each sample and `> temp.txt` to save
+
+`anvi-estimate-scg-taxonomy -c day3/contigs_database.db -p day3/sample1/PROFILE.db --metagenome-mode --compute-scg-coverages --update-profile-db-with-taxonomy > temp.txt`
+`anvi-estimate-scg-taxonomy -c day3/contigs_database.db -p day3/sample2/PROFILE.db --metagenome-mode --compute-scg-coverages --update-profile-db-with-taxonomy > temp.txt`
+`anvi-estimate-scg-taxonomy -c day3/contigs_database.db -p day3/sample3/PROFILE.db --metagenome-mode --compute-scg-coverages --update-profile-db-with-taxonomy > temp.txt`
+
+-> ONE final summary to get comprehensive info about your METABAT2 bins:
+
+`anvi-summarize -p day3/merged_profiles/PROFILE.db -c day3/contigs_database.db -o day5/SUMMARY_METABAT2_FINAL -C METABAT2`
+
+-> now the taxonomy is added. You can look at `index.htlm` and see which MAGs belong to which species
+
+
+**Questions**
+*  Did you get a species assignment to the A R C H A E A bins previously identified?
+-> yep
+-> Metabat__27: Methanocellus sp012797575 -> so we found out the genus, but not the specific species
+-> Metabat__26: Methanocellus thermohydrogenotrophicum -> so we found out the exact species
+-> Metabat__7: Methanosarcina flavescens -> so we found out the exact species
+
+* Does the HIGH-QUALITY assignment of the bin need revision?
+-> yep, should be revisied. **But why?**
+
+* hint: MIMAG quality tiers https://www.nature.com/articles/nbt.3893
+
+2. Genome dereplication (BONUS)
+
+
+
+
 
 
 
