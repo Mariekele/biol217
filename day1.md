@@ -426,7 +426,7 @@ anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-thr
 -> 46 species
 
 * Try to dereplicate again at 90% identity then at 80%identity. In your own words, explain the differences between the different %identities.
--> nothing changes with 95% and 90% identity. But with 80% I got only 44 species. When I look into the Cluster report it is shown that 2 species are the same. Its bin27 and bin36 which were the archaea. They were actually from the same genus. So why do we get different bins, maybe its because some contigs were falsley compared together or maybe because the binning isnt looking for the nucelotids. They just looking for the k-mers and so...
+-> nothing changes with 95% and 90% identity. But with 80% I got only 44 species. When I look into the Cluster report it is shown that 2 species are the same. Its bin27 and bin36 which were the archaea. They were actually from the same genus. So why do we get different bins, maybe its because some contigs were falsley compared together or maybe because the binning isnt looking for the nucelotid identity. They just looking for the k-mers and somehting else. Those are less sensitive than nucleotid identity. There are a lot of technological reasons for miss binning.
 And bin14 and bin42 which where unnamed bacteria.
 
 -> [picture](/image.png) -> zum Bilder abspeichern 
