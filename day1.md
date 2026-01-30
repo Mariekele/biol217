@@ -387,7 +387,12 @@ commands:
 -> Metabat__7: Methanosarcina flavescens -> so we found out the exact species
 
 * Does the HIGH-QUALITY assignment of the bin need revision?
--> yep, should be revisied. **But why?**
+-> no is fine as it is
+-> completeness nearly 100%
+-> genome nearly complete
+-> taxonomy coherent
+-> the markers agree
+-> Bin was okay
 
 * hint: MIMAG quality tiers https://www.nature.com/articles/nbt.3893
 
@@ -402,10 +407,11 @@ commands:
 
 command: `anvi-dereplicate-genomes -i tabfile.csv --program fastANI --similarity-threshold 0.95 -o ANI --log-file log_ANI -T 10`
 but that was only for the archaea
-
-#anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-threshold 0.95 -o ANI2 --log-file log_ANI -T 10 --force-overwrite
-#anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-threshold 0.90 -o ANI90 --log-file log_ANI -T 10 --force-overwrite
-#anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-threshold 0.80 -o ANI80 --log-file log_ANI -T 10 --force-overwrite
+```
+anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-threshold 0.95 -o ANI2 --log-file log_ANI -T 10 --force-overwrite
+anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-threshold 0.90 -o ANI90 --log-file log_ANI -T 10 --force-overwrite
+anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-threshold 0.80 -o ANI80 --log-file log_ANI -T 10 --force-overwrite
+```
 -> for every bin. 95% identity, 90% identity, 80% identity
 
 
