@@ -281,9 +281,9 @@ command: `anvi-refine -c day3/contigs_database.db -p day4/PROFILE_refined.db --b
 * How much could you improve the quality of your A R C H A  E A ?
   Compare the completeness and redundance of the bin before and after refining.
   -> **in the plot:**
--> [METABAT7](/METABAT7)
--> [METABAT27](/METABAT27)
--> [METABAT36](/METABAT36)
+-> [METABAT7](/METABAT7.png)
+-> [METABAT27](/METABAT27NEW.png)
+-> [METABAT36](/METABAT36.png)
 
 ->  Domain	Domain Confidence	HMM Source	Completion	Redundancy
 ✓	archaea	0.98	Archaea_76	98.68%	2.63%
