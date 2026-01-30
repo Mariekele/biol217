@@ -65,7 +65,7 @@ testing to sync
 -> now they can be used for more metagenomic work
 
 
--> [picture](Mariekele/biol127/image.png)
+-> [picture](/image.png)
 
 **DAY3**
 
