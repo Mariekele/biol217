@@ -419,6 +419,9 @@ anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-thr
 anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-threshold 0.90 -o ANI90 --log-file log_ANI -T 10 --force-overwrite
 anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-threshold 0.80 -o ANI80 --log-file log_ANI -T 10 --force-overwrite
 ```
+-> **remember fot the exam what I did?**
+
+
 -> for every bin. 95% identity, 90% identity, 80% identity
 
 
@@ -426,10 +429,110 @@ anvi-dereplicate-genomes -i tabfilenewnew.txt --program fastANI --similarity-thr
 -> 46 species
 
 * Try to dereplicate again at 90% identity then at 80%identity. In your own words, explain the differences between the different %identities.
--> nothing changes with 95% and 90% identity. But with 80% I got only 44 species. When I look into the Cluster report it is shown that 2 species are the same. Its bin27 and bin36 which were the archaea. They were actually from the same genus. So why do we get different bins, maybe its because some contigs were falsley compared together or maybe because the binning isnt looking for the nucelotid identity. They just looking for the k-mers and somehting else. Those are less sensitive than nucleotid identity. There are a lot of technological reasons for miss binning.
+-> nothing changes with 95% and 90% identity. But with 80% I got only 44 species. When I look into the Cluster report it is shown that 2 species are the same. Its bin27 and bin36 which were the archaea. They were actually from the same genus. So why do we get different bins, maybe its because some contigs were falsley compared together or maybe because the binning isnt looking for the nucelotid identity. They just looking for the k-mers and somehting else. Those are less sensitive than nucleotid identity. There are a lot of technological reasons for miss binnig. 
 And bin14 and bin42 which where unnamed bacteria.
 
 -> [picture](/image.png) -> zum Bilder abspeichern 
+
+
+**DAY6**
+- working in the micromamba short reads or long reads
+
+1. Data today
+
+2. Quality Control
+ 1. Short reads
+ - run **fastqc**
+ mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
+ for i in genomics/0_raw_reads/short_reads/*.gz
+ do 
+    fastqc $i -o genomics/1_short_reads_qc/1_fastqc_raw -t 8
+  done
+
+ - run **fastp**
+ mkdir -p $WORK/genomics/1_short_reads_qc/1_fastp_out
+ 
+ fastp -i genomics/0_raw_reads/short_reads/241155E_R1.fastq.gz -I genomics/0_raw_reads/short_reads/241155E_R2.fastq.gz -o genomics/1_short_reads_qc/cleaned_241155E_R1.fastq.gz -O genomics/1_short_reads_qc/cleaned_241155E_R2.fastq.gz -t 6 -q 20 -h genomics/1_short_reads_qc/1_fastp_out/fastp_report.html -R genomics/1_short_reads_qc/1_fastp_out/fastp_report
+
+ - Check the quality of the cleaned reads with fastqc again
+ 
+ mkdir -p $WORK/genomics/1_short_reads_qc/fastqc_cleaned
+ 
+ for i in genomics/1_short_reads_qc/*.gz
+ do 
+   fastqc $i -o genomics/1_short_reads_qc/fastqc_cleaned -t 16
+  done
+  
+  **Questions**
+  * How Good is the read quality?
+ ->
+ * How many reads before trimming and how many do you have now? 
+ ->
+ * Did the quality of the reads improve after trimming?
+ -> 
+
+
+ 2. Long reads
+ - NanoPlot:
+ mkdir -p genomics/2_long_reads
+ mkdir -p genomics/2_long_reads/nanoplot_raw
+ 
+ cd $WORK/genomics/0_raw_reads/long_reads/
+ 
+ NanoPlot --fastq $WORK/genomics/0_raw_reads/long_reads/241155E.fastq.gz -o $WORK/genomics/2_long_reads/nanoplot_raw -t 6 --maxlength 40000 --minlength 1000 --plots kde --format png --N50 --dpi 300 --store --raw --tsv_stats --info_in_report
+
+
+ - Filtlong:
+ mkdir -p genomics/2_long_reads/cleaned_long_reads
+ 
+ filtlong --min_length 1000 --keep_percent 90 $WORK/genomics/0_raw_reads/long_reads/*.gz | gzip > $WORK/genomics/2_long_reads/cleaned_long_reads/cleaned_filtlong.fastq.gz
+ mv cleaned_filtlong.fastq.gz $WORK/genomics/2_long_reads/cleaned_long_reads
+
+
+ - NanoPlot again:
+ mkdir -p genomics/2_long_reads/cleaned_long_reads
+
+ NanoPlot --fastq $WORK/genomics/2_long_reads/cleaned_long_reads/cleaned_filtlong.fastq.gz -o $WORK/genomics/2_long_reads/nanoplot_again_cleaned -t 6 --maxlength 40000 --minlength 1000 --plots kde --format png --N50 --dpi 300 --store --raw --tsv_stats --info_in_report
+
+ **Questions**
+ * How Good is the long reads quality?
+ -> before:
+ Reads >Q10: 	11186 (70.1%) 102.2Mb
+ Reads >Q15: 	1578 (9.9%) 12.8Mb
+ Reads >Q20: 	1 (0.0%) 0.0Mb
+ Reads >Q25: 	0 (0.0%) 0.0Mb
+ Reads >Q30: 	0 (0.0%) 0.0Mb
+ 
+ n50 	21971.0
+ mean_qual 	10.4
+ median_qual 	11.7
+
+ -> after:
+ Reads >Q10: 	10521 (84.5%) 101.4Mb
+ Reads >Q15: 	1527 (12.3%) 12.7Mb
+ Reads >Q20: 	1 (0.0%) 0.0Mb
+ Reads >Q25: 	0 (0.0%) 0.0Mb
+ Reads >Q30: 	0 (0.0%) 0.0Mb
+
+ n50 	22747.0
+ mean_qual 	11.4
+ median_qual 	12.5
+
+  * How many reads before trimming and how many do you have now?
+ -> before: number_of_reads 	15963
+
+ -> after: number_of_reads 	12446
+
+3. Assemble the genome using **Unicycler**
+
+
+
+
+
+
+
+
+
 
 
 
