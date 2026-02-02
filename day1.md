@@ -438,10 +438,10 @@ And bin14 and bin42 which where unnamed bacteria.
 **DAY6**
 - working in the micromamba short reads or long reads
 
-1. <Data today>
+1. **Data today**
 
-2. <Quality Control>
- 1. Short reads
+2. **Quality Control**
+ 1. <Short reads>
  - run **fastqc**
  ```
  mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
@@ -531,17 +531,59 @@ And bin14 and bin42 which where unnamed bacteria.
 
 -> `unicycler -1 1_short_reads_qc/cleaned_241155E_R1.fastq.gz -2 1_short_reads_qc/cleaned_241155E_R2.fastq.gz -l 2_long_reads/cleaned_long_reads/cleaned_filtlong.fastq.gz -o genome_assembly -t 8`
 
-4. <Bandage>
+4. **Check the assembly quality**
+ 1. <Quast>
 
--> Bild (?)
+ -> `mkdir -p $WORK/genomics/genome_assembly/quast`
+ 
+ `quast.py $WORK/genomics/genome_assembly/assembly.fasta --circos -L --conserved-genes-finding --rna-finding --glimmer --use-all-alignments --report-all-metrics -o $WORK/genomics/genome_assembly/quast -t 8`
+
+ 2. <CheckM>
+ `mkdir -p $WORK/genomics/genome_assembly/checkm_out`
+ # Run CheckM for this assembly
+ `checkm lineage_wf $WORK/genomics/genome_assembly $WORK/genomics/genome_assembly/checkm_out -x fasta --tab_table --file $WORK/genomics/genome_assembly/checkm_out/checkm_results -r -t 8`
+ # Run CheckM QA for this assembly
+ `checkm tree_qa $WORK/genomics/genome_assembly/checkm_out`
+ `checkm qa $WORK/genomics/genome_assembly/checkm_out/lineage.ms $WORK/genomics/genome_assembly/checkm_out -o 1 > $WORK/genomics/genome_assembly/checkm_out/final_table_01.csv`
+ `checkm qa $WORK/genomics/genome_assembly/checkm_out/lineage.ms $WORK/genomics/genome_assembly/checkm_out -o 2 > $WORK/genomics/genome_assembly/checkm_out/final_table_checkm.csv`
+
+ 3. <CheckM2>
+ `mkdir -p $WORK/genomics/genome_assembly/checkm_out2`
+
+ `checkm2 predict --threads 1 --input $WORK/genomics/genome_assembly/assembly.fasta --output-directory $WORK/genomics/genome_assembly/checkm_out2`
+
+ 4. <Bandage>
+
+ [Genome_asssembly_vis](/genome_assembly_day6) 
+
+
+
+
+
+
 
 5. <Annotate the Genomes with **Prokka**>
 
 prokka $input/assembly.fasta --outdir $output_dir --kingdom Bacteria --addgenes --cpus 32
 
 
+6. <Classifiy the Genomes with **GTDBTK**>
+
+7. <MultiQC to combine **reports**>
 
 
+
+**Questions**
+ * *How good is the quality of genome?*
+ -> 
+ * *Why did we use Hybrid assembler?*
+ ->
+ * *What is the difference between short and long reads?*
+ ->
+ * *Did we use Single or Paired end reads? Why?*
+ ->
+ * *Which classification was assigned to the genome. Is it trust worthy and why?*
+ ->
 
 
 
