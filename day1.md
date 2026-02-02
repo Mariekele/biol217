@@ -609,7 +609,7 @@ And bin14 and bin42 which where unnamed bacteria.
 
 **Questions**
  * *How good is the quality of genome?*
- -> 
+ -> it is of high quality
  * *Why did we use Hybrid assembler?*
  ->
  * *What is the difference between short and long reads?*
@@ -617,7 +617,7 @@ And bin14 and bin42 which where unnamed bacteria.
  * *Did we use Single or Paired end reads? Why?*
  ->
  * *Which classification was assigned to the genome. Is it trust worthy and why?*
- ->
+ -> Bacteroides muris -> it is trust worthy
 
 
 
