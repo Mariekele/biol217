@@ -438,98 +438,106 @@ And bin14 and bin42 which where unnamed bacteria.
 **DAY6**
 - working in the micromamba short reads or long reads
 
-1. Data today
+1. <Data today>
 
-2. Quality Control
+2. <Quality Control>
  1. Short reads
  - run **fastqc**
+ ```
  mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
  for i in genomics/0_raw_reads/short_reads/*.gz
  do 
     fastqc $i -o genomics/1_short_reads_qc/1_fastqc_raw -t 8
   done
+  ```
 
  - run **fastp**
- mkdir -p $WORK/genomics/1_short_reads_qc/1_fastp_out
+ `mkdir -p $WORK/genomics/1_short_reads_qc/1_fastp_out`
  
- fastp -i genomics/0_raw_reads/short_reads/241155E_R1.fastq.gz -I genomics/0_raw_reads/short_reads/241155E_R2.fastq.gz -o genomics/1_short_reads_qc/cleaned_241155E_R1.fastq.gz -O genomics/1_short_reads_qc/cleaned_241155E_R2.fastq.gz -t 6 -q 20 -h genomics/1_short_reads_qc/1_fastp_out/fastp_report.html -R genomics/1_short_reads_qc/1_fastp_out/fastp_report
+ `fastp -i genomics/0_raw_reads/short_reads/241155E_R1.fastq.gz -I genomics/0_raw_reads/short_reads/241155E_R2.fastq.gz -o genomics/1_short_reads_qc/cleaned_241155E_R1.fastq.gz -O genomics/1_short_reads_qc/cleaned_241155E_R2.fastq.gz -t 6 -q 20 -h genomics/1_short_reads_qc/1_fastp_out/fastp_report.html -R genomics/1_short_reads_qc/1_fastp_out/fastp_report`
 
  - Check the quality of the cleaned reads with fastqc again
  
- mkdir -p $WORK/genomics/1_short_reads_qc/fastqc_cleaned
- 
+ `mkdir -p $WORK/genomics/1_short_reads_qc/fastqc_cleaned`
+ ```
  for i in genomics/1_short_reads_qc/*.gz
  do 
    fastqc $i -o genomics/1_short_reads_qc/fastqc_cleaned -t 16
   done
-  
+  ```
   **Questions**
-  * How Good is the read quality?
- ->
- * How many reads before trimming and how many do you have now? 
- ->
- * Did the quality of the reads improve after trimming?
- -> 
+ * *How Good is the read quality?*
+   -> before: average 35
+   -> after: average 36
+ * *How many reads before trimming and how many do you have now?*
+   -> before: 1639549
+   -> after: 1613392
+ * *Did the quality of the reads improve after trimming?*
+   -> the quality improved slightly from 35 to 36
 
 
- 2. Long reads
- - NanoPlot:
- mkdir -p genomics/2_long_reads
- mkdir -p genomics/2_long_reads/nanoplot_raw
+ 2. <Long reads>
+ - *NanoPlot:*
+ `mkdir -p genomics/2_long_reads`
+ `mkdir -p genomics/2_long_reads/nanoplot_raw`
  
- cd $WORK/genomics/0_raw_reads/long_reads/
+ `cd $WORK/genomics/0_raw_reads/long_reads/`
  
- NanoPlot --fastq $WORK/genomics/0_raw_reads/long_reads/241155E.fastq.gz -o $WORK/genomics/2_long_reads/nanoplot_raw -t 6 --maxlength 40000 --minlength 1000 --plots kde --format png --N50 --dpi 300 --store --raw --tsv_stats --info_in_report
+ `NanoPlot --fastq $WORK/genomics/0_raw_reads/long_reads/241155E.fastq.gz -o $WORK/genomics/2_long_reads/nanoplot_raw -t 6 --maxlength 40000 --minlength 1000 --plots kde --format png --N50 --dpi 300 --store --raw --tsv_stats --info_in_report`
 
 
- - Filtlong:
- mkdir -p genomics/2_long_reads/cleaned_long_reads
+ - *Filtlong:*
+ `mkdir -p genomics/2_long_reads/cleaned_long_reads`
  
- filtlong --min_length 1000 --keep_percent 90 $WORK/genomics/0_raw_reads/long_reads/*.gz | gzip > $WORK/genomics/2_long_reads/cleaned_long_reads/cleaned_filtlong.fastq.gz
- mv cleaned_filtlong.fastq.gz $WORK/genomics/2_long_reads/cleaned_long_reads
+ `filtlong --min_length 1000 --keep_percent 90 $WORK/genomics/0_raw_reads/long_reads/*.gz | gzip > $WORK/genomics/2_long_reads/cleaned_long_reads/cleaned_filtlong.fastq.gz`
+ `mv cleaned_filtlong.fastq.gz $WORK/genomics/2_long_reads/cleaned_long_reads`
 
 
- - NanoPlot again:
- mkdir -p genomics/2_long_reads/cleaned_long_reads
+ - *NanoPlot again:*
+ `mkdir -p genomics/2_long_reads/cleaned_long_reads`
 
- NanoPlot --fastq $WORK/genomics/2_long_reads/cleaned_long_reads/cleaned_filtlong.fastq.gz -o $WORK/genomics/2_long_reads/nanoplot_again_cleaned -t 6 --maxlength 40000 --minlength 1000 --plots kde --format png --N50 --dpi 300 --store --raw --tsv_stats --info_in_report
+ `NanoPlot --fastq $WORK/genomics/2_long_reads/cleaned_long_reads/cleaned_filtlong.fastq.gz -o $WORK/genomics/2_long_reads/nanoplot_again_cleaned -t 6 --maxlength 40000 --minlength 1000 --plots kde --format png --N50 --dpi 300 --store --raw --tsv_stats --info_in_report`
 
  **Questions**
- * How Good is the long reads quality?
- -> before:
- Reads >Q10: 	11186 (70.1%) 102.2Mb
- Reads >Q15: 	1578 (9.9%) 12.8Mb
- Reads >Q20: 	1 (0.0%) 0.0Mb
- Reads >Q25: 	0 (0.0%) 0.0Mb
- Reads >Q30: 	0 (0.0%) 0.0Mb
+ * *How Good is the long reads quality?*
+   -> **before:**
+   Reads >Q10: 	11186 (70.1%) 102.2Mb
+   Reads >Q15: 	1578 (9.9%) 12.8Mb
+   Reads >Q20: 	1 (0.0%) 0.0Mb
+   Reads >Q25: 	0 (0.0%) 0.0Mb
+   Reads >Q30: 	0 (0.0%) 0.0Mb
  
- n50 	21971.0
- mean_qual 	10.4
- median_qual 	11.7
+   n50 	21971.0
+   mean_qual 	10.4
+   median_qual 	11.7
 
- -> after:
- Reads >Q10: 	10521 (84.5%) 101.4Mb
- Reads >Q15: 	1527 (12.3%) 12.7Mb
- Reads >Q20: 	1 (0.0%) 0.0Mb
- Reads >Q25: 	0 (0.0%) 0.0Mb
- Reads >Q30: 	0 (0.0%) 0.0Mb
+   -> **after:**
+   Reads >Q10: 	10521 (84.5%) 101.4Mb
+   Reads >Q15: 	1527 (12.3%) 12.7Mb
+   Reads >Q20: 	1 (0.0%) 0.0Mb
+   Reads >Q25: 	0 (0.0%) 0.0Mb
+   Reads >Q30: 	0 (0.0%) 0.0Mb
 
- n50 	22747.0
- mean_qual 	11.4
- median_qual 	12.5
+   n50 	22747.0
+   mean_qual 	11.4
+   median_qual 	12.5
 
-  * How many reads before trimming and how many do you have now?
- -> before: number_of_reads 	15963
+ * *How many reads before trimming and how many do you have now?*
+   -> **before:** number_of_reads 	15963
 
- -> after: number_of_reads 	12446
+   -> **after:** number_of_reads 	12446
 
-3. Assemble the genome using **Unicycler**
+3. <Assemble the genome using **Unicycler**>
 
+-> `unicycler -1 1_short_reads_qc/cleaned_241155E_R1.fastq.gz -2 1_short_reads_qc/cleaned_241155E_R2.fastq.gz -l 2_long_reads/cleaned_long_reads/cleaned_filtlong.fastq.gz -o genome_assembly -t 8`
 
+4. <Bandage>
 
+-> Bild (?)
 
+5. <Annotate the Genomes with **Prokka**>
 
-
+prokka $input/assembly.fasta --outdir $output_dir --kingdom Bacteria --addgenes --cpus 32
 
 
 
