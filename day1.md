@@ -538,6 +538,11 @@ And bin14 and bin42 which where unnamed bacteria.
  
  `quast.py $WORK/genomics/genome_assembly/assembly.fasta --circos -L --conserved-genes-finding --rna-finding --glimmer --use-all-alignments --report-all-metrics -o $WORK/genomics/genome_assembly/quast -t 8`
 
+ -> quast relise on a database BUSCO, thats why we don´t get so many information
+ -> we get 6 contigs
+ -> but almost the entire assembly is based on one contig
+ -> N50 woul be 1, N90 would be 1 propably as well -> because one contig ist sooooo long
+
  2. <CheckM>
  `mkdir -p $WORK/genomics/genome_assembly/checkm_out`
  # Run CheckM for this assembly
@@ -547,29 +552,58 @@ And bin14 and bin42 which where unnamed bacteria.
  `checkm qa $WORK/genomics/genome_assembly/checkm_out/lineage.ms $WORK/genomics/genome_assembly/checkm_out -o 1 > $WORK/genomics/genome_assembly/checkm_out/final_table_01.csv`
  `checkm qa $WORK/genomics/genome_assembly/checkm_out/lineage.ms $WORK/genomics/genome_assembly/checkm_out -o 2 > $WORK/genomics/genome_assembly/checkm_out/final_table_checkm.csv`
 
+ -> BActeroidales is the marker which was used
+ -> Completensess 98.88, Contamination: 0.19
+ -> high quality genome 
+ -> could easly be found on ncbi as a reference genome
+ -> N50: 4.33 -> same which we get on quast
+ -> requires a lot of commands to get the infos, different to CheckM2
+
  3. <CheckM2>
  `mkdir -p $WORK/genomics/genome_assembly/checkm_out2`
 
  `checkm2 predict --threads 1 --input $WORK/genomics/genome_assembly/assembly.fasta --output-directory $WORK/genomics/genome_assembly/checkm_out2`
 
+ -> is just one line -> is 
+ -> Neural Network
+ -> completeness: 99.98, Contamination: 0.29 -> differnt to CheckM
+ -> is much more sensitve than CheckM, gets a better result
+
  4. <Bandage>
 
  [Genome_asssembly_vis](/genome_assembly_day6) 
 
-
-
-
-
-
+ -> **.gfa** what does that mean: its just a fasta file in in a graphic format
+ -> everytime you draw a graph it looks different -> but doesn´t change anything, just draws it in a different layout
+ -> one small circular DNA (plasmid) in the cell bzw. bacterium, which is shown in the graph 
 
 5. <Annotate the Genomes with **Prokka**>
 
-prokka $input/assembly.fasta --outdir $output_dir --kingdom Bacteria --addgenes --cpus 32
+ `prokka $WORK/genomics/genome_assembly/assembly.fasta --outdir $WORK/genomics/genomes_prokka --kingdom Bacteria --addgenes --cpus 32`
 
+ -> just for getting to know every inofrmation f.e. where is my genome etc.
+ -> Genebank file is the fasta file as well but just with additional information with f.e. the genus, names, ...
+ -> **.gff is the same but just as a table format**
 
 6. <Classifiy the Genomes with **GTDBTK**>
+ -> for thte best performence cpu is reduce and ram is uncreased
+
+ `mkdir -p $WORK/genomics/gtdb_classification`
+ then run gtdb:
+ `gtdbtk classify_wf --cpus 1 --genome_dir $WORK/genomics/genomes_prokka --out_dir $WORK/genomics/gtdb_classification --extension .fna --skip_ani_screen`
+
+ -> classification, what is predictet for our genome and what is the closest genome (looks at the nucleotides and which are the most similar ones) -> here it is **Bacteroides muris**
+
 
 7. <MultiQC to combine **reports**>
+ -> now running MultiQC to combine all the QC reports at once
+
+ `multiqc $WORK/genomics -o $WORK/genomics/multiqc_combined`
+
+ -> just a summary of every quality control which we used
+ -> quast results, N50, number of contigs, gene were predict, rna, trna, ...
+
+
 
 
 
