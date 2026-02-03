@@ -575,7 +575,18 @@ And bin14 and bin42 which where unnamed bacteria.
 
  -> **.gfa** what does that mean: its just a fasta file in in a graphic format
  -> everytime you draw a graph it looks different -> but doesn´t change anything, just draws it in a different layout
- -> one small circular DNA (plasmid) in the cell bzw. bacterium, which is shown in the graph 
+ -> one small circular DNA (plasmid) in the cell bzw. bacterium, which is shown
+ -> just for getting to know every inofrmation f.e. where is my genome etc.
+ -> Genebank file is the fasta file as well but just with additional information with f.e. the genus, names, ...
+ -> **.gff is the same but just as a table format**
+
+6. <Classifiy the Genomes with **GTDBTK**>
+ -> for thte best performence cpu is reduce and ram is uncreased
+
+ `mkdir -p $WORK/genomics/gtdb_classification`
+ then run gtdb:
+ `gtdbtk classify_wf --cpus 1 --genome_dir $WORK/genomics/genomes_prokka --out_dir $WORK/genomics/gtdb_classification --extension .fna --skip_ani_screen`
+ in the graph 
 
 5. <Annotate the Genomes with **Prokka**>
 
@@ -615,11 +626,58 @@ And bin14 and bin42 which where unnamed bacteria.
  * *Why did we use Hybrid assembler?*
  ->
  * *What is the difference between short and long reads?*
- ->
+ -> short reads: less costs, higher accuracy -> problem with repetetive regions
+
+ -> long reads: better assembling, because less contigs, higher costs
+
  * *Did we use Single or Paired end reads? Why?*
  ->
  * *Which classification was assigned to the genome. Is it trust worthy and why?*
  -> Bacteroides muris -> it is trust worthy
+
+**DAY7**
+
+1. <Load the required modules>
+2. <Download the data>
+3. <Create contigs.dbs from .fasta files>
+-> everything with the given commands, just changed the directories
+
+4. <Visualize contigs.db>
+ -> `anvi-display-contigs-stats $WORK/pangenomics/V_jascida_genomes/*db`
+-> then pictures day7task4, day7task4.2
+
+5. <Create external genomes file>
+ -> `anvi-script-gen-genomes-file --input-dir $WORK/pangenomics/V_jascida_genomes -o pangenomics/external-genomes.txt`
+
+6. <Investigate contamination>
+ -> 
+
+
+7. <Visualise contigs for refinement>
+
+8. <Splitting the genome in our good bins>
+
+9. <Estimate completeness of split vs. unsplit genome>
+
+10. <Compute pangenome>
+
+11. <Display the pangenome>
+
+12 <Computing Phylogenomics for your pangenome (Optional task)>
+
+
+**Questions**
+ * *Are genes clustered base on sequence similarity or functional annotation?*
+ -> 
+ * *How do you spot a "bad" genome, or "bad" bin in a genome?*
+ -> 
+ * *Use the search function to assign all gene clusters into the following bins: Core genome, Accessory genome, Singletons and Single Copy core genes (SCGs). Include a screenshot of your pangenome into the protocol*
+ -> 
+ * *If you add more genomes to the pangenome, what would happen to the number of gene clusters in the Core genome and in SCGs.*
+ -> 
+ * *Based on the ANI, would you say all genomes belong to the same species?*
+ -> 
+
 
 
 
