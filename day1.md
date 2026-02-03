@@ -598,7 +598,9 @@ And bin14 and bin42 which where unnamed bacteria.
 7. <MultiQC to combine **reports**>
  -> now running MultiQC to combine all the QC reports at once
 
- `multiqc $WORK/genomics -o $WORK/genomics/multiqc_combined`
+ `multiqc -d $WORK/genomics/ -o $WORK/genomics/6_multiqc`
+ -> but with this command it creates a directory named genomics with the MultiQC in genomics
+
 
  -> just a summary of every quality control which we used
  -> quast results, N50, number of contigs, gene were predict, rna, trna, ...
