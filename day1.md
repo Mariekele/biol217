@@ -622,18 +622,18 @@ And bin14 and bin42 which where unnamed bacteria.
 
 **Questions**
  * *How good is the quality of genome?*
- -> it is of high quality
+ -> it is of high quality, low contamination
  * *Why did we use Hybrid assembler?*
- ->
+ -> because we can combine the pros of short and long reads
  * *What is the difference between short and long reads?*
- -> short reads: less costs, higher accuracy -> problem with repetetive regions
+ -> short reads: higher accuracy -> problem with repetetive regions
 
- -> long reads: better assembling, because less contigs, higher costs
+ -> long reads: better assembling, because less contigs
 
  * *Did we use Single or Paired end reads? Why?*
- ->
+ -> short reads were paired. We had forward an backward reads -> they provide information of both ends and they aprove the assemble accurancy
  * *Which classification was assigned to the genome. Is it trust worthy and why?*
- -> Bacteroides muris -> it is trust worthy
+ -> Bacteroides muris -> it is trust worthy, high completeness, low contamination, high confidence of the assignment
 
 **DAY7**
 
@@ -694,21 +694,33 @@ And bin14 and bin42 which where unnamed bacteria.
 
 
 11. <Display the pangenome>
+ -> visulisation in interactive in terminal
+ -> only difference to the pictures of the others is that in mine the contamination isn´t removed
+ -> in labels, click ANI_percentage_identity
+
+
+
 
 12 <Computing Phylogenomics for your pangenome (Optional task)>
 
 
 **Questions**
  * *Are genes clustered base on sequence similarity or functional annotation?*
- -> 
+ -> based on sequence similarity -> it compares every detail to see how likely they are
+
  * *How do you spot a "bad" genome, or "bad" bin in a genome?*
- -> 
+ -> I can spot it when I look at the redundancy, because a high redundancy is a hint of a contamination. When I want to find a bad bin I can just visualize the genome and spot it then 
+ -> as well low completeness
+
  * *Use the search function to assign all gene clusters into the following bins: Core genome, Accessory genome, Singletons and Single Copy core genes (SCGs). Include a screenshot of your pangenome into the protocol*
  -> 
+
  * *If you add more genomes to the pangenome, what would happen to the number of gene clusters in the Core genome and in SCGs.*
- -> 
+ -> the core genome decrease. Feweer genes are shared by all genomes
+ -> number of SCGs also decrease -> because then some genes could maybe no longer represented in every genome or appear in multiple copies
+ 
  * *Based on the ANI, would you say all genomes belong to the same species?*
- -> 
+ -> If its an Average Nucleotide Identity (ANI) same or higher than 95% than all the genomes are likely to belong to the same species
 
 
  -> redundancy: hinweis auf contamination, kann aber auch sein, dass ein Gen einfach doppelt vorliegt
