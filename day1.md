@@ -650,10 +650,21 @@ And bin14 and bin42 which where unnamed bacteria.
  -> `anvi-script-gen-genomes-file --input-dir $WORK/pangenomics/V_jascida_genomes -o pangenomics/external-genomes.txt`
 
 6. <Investigate contamination>
- -> 
-
+ -> directly in the terminal:`cd $WORK/pangenomics/V_jascida_genomes`
+ `anvi-estimate-genome-completeness -e external-genomes.txt`
+ -> [Contamination Investigation](/genome_assembly_day6) 
 
 7. <Visualise contigs for refinement>
+ -> and then to identify untypical bins ("bad" bins) 
+ `cd V_jascida_genomes`
+ `anvi-estimate-genome-completeness -e external-genomes.txt`
+
+ -> visualisation in interactive:
+ `anvi-interactive -c $WORK/pangenomics/V_jascida_52.db -p $WORK/pangenomisc/V_jascida_52/PROFILE.db`
+
+
+
+
 
 8. <Splitting the genome in our good bins>
 
@@ -679,6 +690,6 @@ And bin14 and bin42 which where unnamed bacteria.
  -> 
 
 
-
+ -> redundancy: hinweis auf contamination, kann aber auch sein, dass ein Gen einfach doppelt vorliegt
 
 
