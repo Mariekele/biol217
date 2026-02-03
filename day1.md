@@ -716,7 +716,7 @@ And bin14 and bin42 which where unnamed bacteria.
  -> as well low completeness
 
  * *Use the search function to assign all gene clusters into the following bins: Core genome, Accessory genome, Singletons and Single Copy core genes (SCGs). Include a screenshot of your pangenome into the protocol*
- -> 
+ -> [Pangenomic](/day7Questions.png) 
 
  * *If you add more genomes to the pangenome, what would happen to the number of gene clusters in the Core genome and in SCGs.*
  -> the core genome decrease. Feweer genes are shared by all genomes
