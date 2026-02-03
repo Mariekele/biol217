@@ -571,7 +571,7 @@ And bin14 and bin42 which where unnamed bacteria.
 
  4. <Bandage>
 
- [Genome_asssembly_vis](/genome_assembly_day6) 
+ [Genome_asssembly_vis](/genome_assembly_day6.png) 
 
  -> **.gfa** what does that mean: its just a fasta file in in a graphic format
  -> everytime you draw a graph it looks different -> but doesn´t change anything, just draws it in a different layout
@@ -644,7 +644,8 @@ And bin14 and bin42 which where unnamed bacteria.
 
 4. <Visualize contigs.db>
  -> `anvi-display-contigs-stats $WORK/pangenomics/V_jascida_genomes/*db`
--> then pictures day7task4, day7task4.2
+ -> [Visualisation of contigs](/day7task4.png) 
+ -> [Visualisation of contigs](/day7task4.2.png) 
 
 5. <Create external genomes file>
  -> `anvi-script-gen-genomes-file --input-dir $WORK/pangenomics/V_jascida_genomes -o pangenomics/external-genomes.txt`
@@ -652,7 +653,10 @@ And bin14 and bin42 which where unnamed bacteria.
 6. <Investigate contamination>
  -> directly in the terminal:`cd $WORK/pangenomics/V_jascida_genomes`
  `anvi-estimate-genome-completeness -e external-genomes.txt`
- -> [Contamination Investigation](/genome_assembly_day6) 
+ -> [Contamination Investigation](/day7task6.png) 
+
+ -> one genome with 21.13 redundancy. Its a sign for contamination. SO we want ot look at this closer -> its the genome 52
+ 
 
 7. <Visualise contigs for refinement>
  -> and then to identify untypical bins ("bad" bins) 
@@ -660,17 +664,34 @@ And bin14 and bin42 which where unnamed bacteria.
  `anvi-estimate-genome-completeness -e external-genomes.txt`
 
  -> visualisation in interactive:
- `anvi-interactive -c $WORK/pangenomics/V_jascida_52.db -p $WORK/pangenomisc/V_jascida_52/PROFILE.db`
+ `anvi-interactive -c pangenomics/V_jascida_genomes/V_jascida_52.db -p pangenomics/V_jascida_genomes/V_jascida_52/PROFILE.db`
 
-
-
-
+ -> **Bild von jemand anderem?, hat bei mir nicht funktioniert**
+ -> every line is a contig, they are grouped how likely they are to belonging together
+ -> then create a bin and mark what we think is contaminated
+ -> antoher bin with clean which shouldn´t have a high Redundancy -> when it is at 5.6 its like evry other genome
+ -> then store the bin
 
 8. <Splitting the genome in our good bins>
+ -> here we will split the PROFILE database and get rid of the cotaminated bin
 
 9. <Estimate completeness of split vs. unsplit genome>
+ -> `anvi-estimate-genome-completeness -e $WORK/pangenomics/V_jascida_genomes/external-genomes.txt -o $WORK/pangenomics/V_jascida_genomes/genome_completeness.txt`
+
 
 10. <Compute pangenome>
+ -> `cd $WORK/pangenomics/V_jascida_genomes`
+ # generate a genome storage database
+ `anvi-gen-genomes-storage -e external-genomes.txt -o V_jascida-GENOMES.db`
+
+ # calculate the pangenome
+ `anvi-pan-genome -g V_jascida-GENOMES.db --project-name V_jascida --num-threads 8`   
+
+ # calculate the ANI 
+ `anvi-compute-genome-similarity -e external-genomes.txt -o ani -p V_jascida/V_jascida-PAN.db -T 8`  
+
+ -> but not working with the external final textfile because step 7 and 8 did not really work                         
+
 
 11. <Display the pangenome>
 
