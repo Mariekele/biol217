@@ -729,3 +729,160 @@ And bin14 and bin42 which where unnamed bacteria.
  -> redundancy: hinweis auf contamination, kann aber auch sein, dass ein Gen einfach doppelt vorliegt
 
 
+**DAY8**
+* Aim in the tutorial: Setting up an RNA-Seq data analysis pipeline; RNA-Seq data pre-processing; RNA-Seq data analysis; Differential gene expression analysis; Data visualization
+* What we do: Download the required files; Set up the files in specific locations; Check read quality; Align the reads to a reference sequence; Calculate the coverage; Perform gene wise quantification; Calculate differential gene expression
+
+* **<Example 1>**
+-> complete script to run an RNA-Seq analysis using READemption is given
+
+-> InSPI2 describes an acidic phosphate-limiting minimal medium that induces Salmonella pathogenicity island (SPI) 2 transcription. This is suspected to create an environmental shock that could induce the upregulation of specific gene sets.
+-> LSP (late stationary phase). This is reached by growth in Lennox Broth medium.
+
+-> **Explained:**
+-> **Transicrptomics is about comparing things**: in Example 1 we are comparing InSPI2 and LSP 
+-> `export` to access the internet with proxy environment, because you can´t access directly
+-> creating folders for READemption with projectname
+-> get the reference genome (in this case 1 genome and 3 plasmids) and put them in specific folders
+-> then renaming the files (not always necassary)
+-> reference alone doesn´t help that much, you haveto understand it -> download the annotation as well -> and in this case unzip it
+-> two conditions R1 and R2 as well
+-> now there is everything to start
+-> let READemption work and let it visualize it
+
+
+
+* **<Example 2>**
+
+1. Download the sequence data you want to analyze
+-> searching in the linkied article for the accession number **GSE85456**
+-> on NCBI: going Genomes -> BioProject -> Project Data: SRA Experiments -> finding four links with each of it having the SSR number on the end of the website
+
+-> SRX2012145: GSM2267309: ∆sRNA154 replicate 1; Methanosarcina mazei Go1; RNA-Seq with: `SRR4018516` (6.0M(Spots)	598.9M(Bases)	380.6MB(Size)	39.5%(GC Conetent))
+
+-> SRX2012144: GSM2267308: wildtype replicate 2; Methanosarcina mazei Go1; RNA-Seq with: `SRR4018515` (4.8M	477.6M	304.7MB	40.3%)
+
+-> SRX2012143: GSM2267307: wildtype replicate 1; Methanosarcina mazei Go1; RNA-Seq with: `SRR4018514` (3.8M	376.8M	241.0MB	41.5%)
+
+-> SRX2012146: GSM2267310: ∆sRNA154 replicate 2; Methanosarcina mazei Go1; RNA-Seq with: `SRR4018517` (6.8M	682.4M	432.5MB	39.8%)
+
+-> SRR numbers are the actual reads themself: das sind also eindeutige „Run Accession Numbers“ im Sequence Read Archive (SRA) – also Identifikationsnummern für einzelne Sequenzier-Runs
+**-> running everthing in the terminal except step 5**
+in teriminal:
+```
+grabseqs sra -t 4 -m ./metadata.csv SRR4018516
+grabseqs sra -t 4 -m ./metadata.csv SRR4018515
+grabseqs sra -t 4 -m ./metadata.csv SRR4018514
+grabseqs sra -t 4 -m ./metadata.csv SRR4018517
+```
+-> and then renaming it
+
+2. Create the reademption folder structure
+
+`reademption create --project_path READemption_analysis_2 --species methanosarcina="Methanosarcina mazei Gö1"`
+
+3. Download stuff
+
+# download reference genome
+wget -O READemption_analysis_2/input/methanosarcina_reference_sequences/GCF_000007065.1_ASM706v1_genomic.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/007/065/GCF_000007065.1_ASM706v1/GCF_000007065.1_ASM706v1_genomic.fna.gz
+
+# download annotation
+wget -O READemption_analysis_2/input/methanosarcina_annotations/GCF_000007065.1_ASM706v1_genomic.gff.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/007/065/GCF_000007065.1_ASM706v1/GCF_000007065.1_ASM706v1_genomic.gff.gz
+
+# unzip them
+gunzip READemption_analysis_2/input/methanosarcina_reference_sequences/GCF_000007065.1_ASM706v1_genomic.fna.gz
+gunzip READemption_analysis_2/input/methanosarcina_annotations/GCF_000007065.1_ASM706v1_genomic.gff.gz
+
+4. Copy the raw_reads to the READemption_analysis folder
+
+cp *.fastq.gz reademption_folder/READemption_analysis_2/input/reads
+
+5. Run READemption
+
+# align reads to reference
+reademption align -p 4 --poly_a_clipping --project_path READemption_analysis_2 --fastq
+
+# calculate read coverage
+reademption coverage -p 4 --project_path READemption_analysis_2
+
+# quantify gene expression
+reademption gene_quanti -p 4 --features CDS,tRNA,rRNA --project_path READemption_analysis_2
+
+# calculate differential expression using DESeq2
+reademption deseq -l mut_R1.fastq.gz,mut_R2.fastq.gz,wt_R1.fastq.gz,wt_R2.fastq.gz -c mut,mut,wt,wt -r 1,2,1,2 --libs_by_species methanosarcina=mut_R1,mut_R2,wt_R1,wt_R2 --project_path READemption_analysis_2
+
+# visualization
+reademption viz_align --project_path READemption_analysis_2
+reademption viz_gene_quanti --project_path READemption_analysis_2
+reademption viz_deseq --project_path READemption_analysis_2
+
+
+6. Analyze your results
+
+ * all_species_viz_align:
+   -> it is a box plot which shows that all reads could be assigned to the refernce genome `Methanosarcina mazei`, which is expectet. There were just some unaligned reads. We don´t have cross aligned reads, because they were aligned to mulitple genomes and we only tested for one.
+
+
+ * methanosarcina_viz_align:
+   -> it is a box plot. We can see that there are many uniquely aligned reads and just some multiple aligned reads of it. 
+   Multiple means they are reads that cover more genes bzw. go over one gene.
+   split aligend reads means if we had two genomes they were aligned on both but not together, but we don´t have that.
+
+
+ * methanosarcina_viz_deseq:
+ -> MA plot:
+   -> it shows dots in red and black, while the every dot stands for one gene. The red dots are significantly differentially expressed genes. Black dots arent significantly and with a unsignficant p-value.
+   It shows that many dots are on the left side in the middel which means they are    expressed low
+   -> but no expression difference between left and right side
+   -> both plots look the same because they were just flipped its mut vs. wt and wt vs. mut.
+   -> y-Achse with log2 fold: 0 means no change, 1 means douuble the expression, -1 means that its half of that expression
+
+ -> volcano plot:
+   -> just a different way of representation of the data in MA plot 
+   -> on the right side they are high regulated on the left low regulated. If they are down, near 0 on the y-Achse, its not signigicant .
+   -> so we can say that both plots arent that sgnifikant with a low p-value
+  
+
+ * methanosarciana_viz_gene_quanti:
+ -> expression scatter plot:
+   -> more like a quality control
+   -> used to compare the expression of every gene in different conditions. Every dot represents one gene. THey are mostly aligned around the diagonal line. If they are directly on the line it says that they have the exact same expression in both condtions and when they are near the line its barley a differnece
+   -> but we want some difference, but not completely different
+
+ -> RNA class box plots:
+   -> shows distributionn of the geneexpressionvalues its usually used for quality control and comparing of the samples. 
+   -> actual conding sequence is shown
+
+ * read_lengths_viz_align:
+   -> read length distribution plots compares it before and after trimming. Before they were 100 nucelotides long and afterwards, after trimming, they got a bite shorter. 
+
+
+
+
+7. What now?
+ -> most important files in methanosarcina_deseq with tables that show the results of the differntial expression analysis (log2 FC, p-values etc.); **Think about what you could do with these results.**
+
+ -> contains a lot of information:
+   -> contains information of reads 
+   -> reademption uses multiple sources for annotations
+   -> GO trams(?) = trams in which are genes are grouped into certain categories
+   -> raw counts
+   -> most important: log2fold change and the p-value (which is a measure of the significance) nd adjustet p-values (which is just a bit stricter)
+     -> mostly with a signifcance value of 0.05 -> everthing lower means that it is signficant  
+
+   -> it contains so much that you can do a lot if it, just filter the table for what you want to do or test for :)
+   
+
+
+
+
+
+
+-> **Bilder einfügen**
+
+
+
+
+
+
+
