@@ -873,12 +873,76 @@ reademption viz_deseq --project_path READemption_analysis_2
    -> it contains so much that you can do a lot if it, just filter the table for what you want to do or test for :)
    
 
-
-
-
-
-
 -> **Bilder einfügen**
+
+
+
+**DAY9** <Viromics>
+
+1. <Aim>
+-> learn about virome analysis for a metagenomics dataset, which include these steps:  
+  Read pre-processing and assembly (either virus-specific assembly or standard metagenomic assembly)
+  Viral identification
+  Virus-specific quality control
+   Viral clustering
+  Viral binning
+  Abundance estimation
+  Virus-specific annotation
+  Host prediction
+and maybe as well as additional steps:  
+  Viral taxonomy prediction
+  Viral Lifecycle prediction
+  Virus-specific metabolic analyses
+
+2. <Tools and pipelines>
+  * MVP (Modular Viromics Pipeline)
+    -> follows a robust workflow
+    -> outputs are structured really well 
+    -> uses clean reads and assemblies from multiple samples 
+  * iPHoP (integrated Phage-Host Prediction)
+    -> Since MVP only prepares output for host prediction via iPHoP (some tools need special formats to work) but does not run the tool itself, we will be manually running iPHoP
+
+3. <Commands>
+
+
+ -> **Do not put them into the protocol!**
+4. <Questions> 
+  1. 
+  2. 
+  3. 
+  4. 
+  5. 
+  6. 
+  7. 
+  8. 
+  9. 
+  10. 
+  11. 
+  12. 
+  13. 
+  14. 
+  15. 
+  16. 
+  17. 
+  18. 
+  19. 
+  20. 
+  21. 
+  22. 
+  23. 
+  24. 
+  25. 
+  26. 
+  27. 
+  28. 
+
+
+
+
+
+
+
+
 
 
 
