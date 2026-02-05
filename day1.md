@@ -905,37 +905,431 @@ and maybe as well as additional steps:
 3. <Commands>
 
 
- -> **Do not put them into the protocol!**
 4. <Questions> 
   1. 
+   `grep ">" -c 01_GENOMAD/BGR_140717/BGR_140717_Viruses_Genomad_Output/BGR_140717_modified_summary/*_virus.fna`
+   846
   2. 
+   `grep ">" -c 01_GENOMAD/BGR_140717/BGR_140717_Proviruses_Genomad_Output/proviruses_summary/*_virus.fna`
+   11
   3. 
+    `grep -c "Caudoviricetes" 02_CHECK_V/BGR_*/MVP_02_BGR_*_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv`
+   02_CHECK_V/BGR_130305/MVP_02_BGR_130305_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:614
+   02_CHECK_V/BGR_130527/MVP_02_BGR_130527_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:684
+   02_CHECK_V/BGR_130708/MVP_02_BGR_130708_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:850
+   02_CHECK_V/BGR_130829/MVP_02_BGR_130829_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:954
+   02_CHECK_V/BGR_130925/MVP_02_BGR_130925_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:849
+   02_CHECK_V/BGR_131021/MVP_02_BGR_131021_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:1079
+   02_CHECK_V/BGR_131118/MVP_02_BGR_131118_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:609
+   02_CHECK_V/BGR_140106/MVP_02_BGR_140106_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:368
+   02_CHECK_V/BGR_140121/MVP_02_BGR_140121_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:575
+   02_CHECK_V/BGR_140221/MVP_02_BGR_140221_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:717
+   02_CHECK_V/BGR_140320/MVP_02_BGR_140320_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:468
+   02_CHECK_V/BGR_140423/MVP_02_BGR_140423_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:358
+   02_CHECK_V/BGR_140605/MVP_02_BGR_140605_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:527
+   02_CHECK_V/BGR_140717/MVP_02_BGR_140717_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:559
+   02_CHECK_V/BGR_140821/MVP_02_BGR_140821_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:337
+   02_CHECK_V/BGR_140919/MVP_02_BGR_140919_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:476
+   02_CHECK_V/BGR_141022/MVP_02_BGR_141022_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:401
+   02_CHECK_V/BGR_150108/MVP_02_BGR_150108_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:339
+
   4. 
-  5. 
+    `grep -c "Unclassified" 02_CHECK_V/BGR_*/MVP_02_BGR_*_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv`
+   02_CHECK_V/BGR_130305/MVP_02_BGR_130305_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:10
+   02_CHECK_V/BGR_130527/MVP_02_BGR_130527_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:9
+   02_CHECK_V/BGR_130708/MVP_02_BGR_130708_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:10
+   02_CHECK_V/BGR_130829/MVP_02_BGR_130829_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:14
+   02_CHECK_V/BGR_130925/MVP_02_BGR_130925_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:11
+   02_CHECK_V/BGR_131021/MVP_02_BGR_131021_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:14
+   02_CHECK_V/BGR_131118/MVP_02_BGR_131118_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:7
+   02_CHECK_V/BGR_140106/MVP_02_BGR_140106_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:4
+   02_CHECK_V/BGR_140121/MVP_02_BGR_140121_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:4
+   02_CHECK_V/BGR_140221/MVP_02_BGR_140221_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:8
+   02_CHECK_V/BGR_140320/MVP_02_BGR_140320_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:4
+   02_CHECK_V/BGR_140423/MVP_02_BGR_140423_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:4
+   02_CHECK_V/BGR_140605/MVP_02_BGR_140605_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:7
+   02_CHECK_V/BGR_140717/MVP_02_BGR_140717_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:9
+   02_CHECK_V/BGR_140821/MVP_02_BGR_140821_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:4
+   02_CHECK_V/BGR_140919/MVP_02_BGR_140919_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:8
+   02_CHECK_V/BGR_141022/MVP_02_BGR_141022_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:8
+   02_CHECK_V/BGR_150108/MVP_02_BGR_150108_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:10
+
+  5. -> **Tabelle machen!**
+   `grep -v "Unclassified" 02_CHECK_V/BGR_*/MVP_02_BGR_*_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv |grep -v "Caudoviricetes" | grep -v "Sample"`
+   02_CHECK_V/BGR_130305/MVP_02_BGR_130305_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_130305	BGR_130305_NODE_2265_length_4061_cov_5.941338	4061	No	3	1	0	Low-quality	Genome-fragment	2.89	AAI-based (medium-confidence)	1.0		11	0.9643	04.4395	Viruses;Varidnaviria;Bamfordvirae;Nucleocytoviricota;Megaviricetes;Imitervirales;Mimiviridae	dsDNA	Eukaryote
+   02_CHECK_V/BGR_130527/MVP_02_BGR_130527_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_130527	BGR_130527_NODE_3972_length_2853_cov_3.214796	2853	No	3	1	0	Low-quality	Genome-fragment	4.0	HMM-based (lower-bound)	1.0		11	0.8411	0	3.4351	Viruses;Varidnaviria;Bamfordvirae;Nucleocytoviricota;Megaviricetes;Algavirales;Phycodnaviridae	dsDNA	Eukaryote
+   02_CHECK_V/BGR_130708/MVP_02_BGR_130708_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_130708	BGR_130708_NODE_5125_length_2609_cov_6.036805	2609	No	3	1	0	Low-quality	Genome-fragment	3.65	HMM-based (lower-bound)	1.0		11	0.7483	0	3.4351	Viruses;Varidnaviria;Bamfordvirae;Nucleocytoviricota;Megaviricetes;Algavirales;Phycodnaviridae	dsDNA	Eukaryote
+   02_CHECK_V/BGR_131021/MVP_02_BGR_131021_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_131021	BGR_131021_NODE_3917_length_3744_cov_3.725400	3744	No	4	1	0	Low-quality	Genome-fragment	1.08	AAI-based (medium-confidence)	1.0		11	0.9654	12.6771	Viruses	Unknown	Unknown
+   02_CHECK_V/BGR_131021/MVP_02_BGR_131021_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_131021	BGR_131021_k141_151878_length_2551_cov_25.4033	2551	No	5	1	0	Low-quality	Genome-fragment	6.07	HMM-based (lower-bound)	1.0		11	0.9284	0	1.7183	Viruses;Varidnaviria;Bamfordvirae;Preplasmiviricota;Tectiliviricetes;Autolykiviridae	dsDNA	Prokaryote
+   02_CHECK_V/BGR_131021/MVP_02_BGR_131021_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_131021	BGR_131021_NODE_12517_length_1678_cov_37.389402	1678	No	3	1	0	Low-quality	Genome-fragment	16.44	HMM-based (lower-bound)	1.0		11	0.9323	1	1.7183	Viruses;Riboviria;Pararnavirae;Artverviricota;Revtraviricetes;Ortervirales;Retroviridae	ssRNA-RT	Eukaryote
+   02_CHECK_V/BGR_140221/MVP_02_BGR_140221_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_140221	BGR_140221_NODE_2074_length_4089_cov_7.783837_1_1_3696	3696	Yes	4	1	0	Low-quality	Genome-fragment	3.02	AAI-based (medium-confidence)	1.0	1-3696	11	0.9072	0	1.7183	Viruses;Varidnaviria;Bamfordvirae;Nucleocytoviricota;Megaviricetes;Algavirales;Phycodnaviridae	dsDNA	Eukaryote
+   02_CHECK_V/BGR_140605/MVP_02_BGR_140605_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_140605	BGR_140605_NODE_5969_length_1911_cov_2.155172	1911	No	5	3	0	Low-quality	Genome-fragment	39.82	AAI-based (medium-confidence)	1.0		11	0.97	14.5511	Viruses;Monodnaviria;Sangervirae;Phixviricota;Malgrandaviricetes;Petitvirales;Microviridae	ssDNA	Prokaryote
+   02_CHECK_V/BGR_140919/MVP_02_BGR_140919_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_140919	BGR_140919_NODE_1812_length_5087_cov_5.712838	5087	No	10	1	1	Low-quality	Genome-fragment	0.41	HMM-based (lower-bound)	1.0		11	0.9463	0	4.0154	Viruses	Unknown	Unknown
+   02_CHECK_V/BGR_140919/MVP_02_BGR_140919_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_140919	BGR_140919_k141_2996_length_1161_cov_5.0000	1161	No	2	1	0	Low-quality	Genome-fragment	17.74	HMM-based (lower-bound)	1.0		11	0.959	1	1.5528	Viruses;Monodnaviria;Sangervirae;Phixviricota;Malgrandaviricetes;Petitvirales;Microviridae	ssDNA	Prokaryote
+
   6. 
+    `cut` to cut the columns that are wanted
+    `-f ?` to select a specific coloumn, in this case the check_quality (which is Low-quality or High_quality)
+    `grep` for the rows
+    `-e` to search for a specific pattern or more like the "High-quality" and "Complete"
+    `-c` to count every columns that aren´t empty
+   `cut -f 8 02_CHECK_V/BGR_*/MVP_02_BGR_*_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv | grep -e "High-quality" -e "Complete" |grep -c ""`
+   -> 5 
+   -> without `grep -c""` it lists it: We have 3x Complete and 2x High-quality
+  
   7. 
+   -> 5x loops and just switch the grep -c "" for Low-quality, Medium-quality, High-quality, Complete and Sample -> or just do all in one with echo(?)
+   -> `break` to end the loop aftre the first file, just to check if the command worked the like it should 
+
+   `for x in BGR_130305  BGR_130527  BGR_130708  BGR_130829  BGR_130925  BGR_131021  BGR_131118  BGR_140106  BGR_140121  BGR_140221  BGR_140320  BGR_140423  BGR_140605  BGR_140717  BGR_140821  BGR_140919  BGR_141022  BGR_150108; do echo $x; cut -f 8 02_CHECK_V/"$x"/MVP_02_"$x"_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv | grep -c "Low-quality" ;break; done` -> with break to test
+
+   `for x in BGR_130305  BGR_130527  BGR_130708  BGR_130829  BGR_130925  BGR_131021  BGR_131118  BGR_140106  BGR_140121  BGR_140221  BGR_140320  BGR_140423  BGR_140605  BGR_140717  BGR_140821  BGR_140919  BGR_141022  BGR_150108; do echo $x; echo  "Low-quality"; cut -f 8 02_CHECK_V/"$x"/MVP_02_"$x"_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv | grep -c "Low-quality" ; echo  "Medium-quality"; cut -f 8 02_CHECK_V/"$x"/MVP_02_"$x"_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv | grep -c "Medium-quality"; echo  "High-quality"; cut -f 8 02_CHECK_V/"$x"/MVP_02_"$x"_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv | grep -c "High-quality"; echo  "Complete"; cut -f 8 02_CHECK_V/"$x"/MVP_02_"$x"_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv | grep -c "Complete"; done`
+   BGR_130305
+   Low-quality 625
+   Medium-quality 0
+   High-quality 0
+   Complete 0
+
+   BGR_130527
+   Low-quality 693
+   Medium-quality 1
+   High-quality 0
+   Complete 0
+
+   BGR_130708
+   Low-quality 860
+   Medium-quality 1
+   High-quality 0
+   Complete 0
+
+   BGR_130829
+   Low-quality 964
+   Medium-quality 3
+   High-quality 0
+   Complete 0
+
+   BGR_130925
+   Low-quality 856
+   Medium-quality 3
+   High-quality 0
+   Complete 0
+   
+   BGR_131021
+   Low-quality 1091
+   Medium-quality 3
+   High-quality 0
+   Complete 1
+   
+   BGR_131118
+   Low-quality 613
+   Medium-quality 3
+   High-quality 0
+   Complete 0
+   
+   BGR_140106
+   Low-quality 372
+   Medium-quality 0
+   High-quality 0
+   Complete 0
+   
+   BGR_140121
+   Low-quality 578     
+   Medium-quality 0
+   High-quality 0
+   Complete 1
+   
+   BGR_140221
+   Low-quality 724
+   Medium-quality 1
+   High-quality 1
+   Complete 0
+   
+   BGR_140320
+   Low-quality 471
+   Medium-quality 1
+   High-quality 0
+   Complete 0
+   
+   BGR_140423
+   Low-quality 362
+   Medium-quality 0
+   High-quality 0
+   Complete 0
+   
+   BGR_140605
+   Low-quality 531
+   Medium-quality 2
+   High-quality 0
+   Complete 0
+   
+   BGR_140717
+   Low-quality 564
+   Medium-quality 3
+   High-quality 0
+   Complete 1
+  
+   BGR_140821
+   Low-quality 338
+   Medium-quality 1
+   High-quality 1
+   Complete 0
+   
+   BGR_140919
+   Low-quality 485
+   Medium-quality 1
+   High-quality 0
+   Complete 0
+   
+   BGR_141022
+   Low-quality 409
+   Medium-quality 0
+   High-quality 0
+   Complete 0
+   
+   BGR_150108
+   Low-quality 348
+   Medium-quality 1
+   High-quality 0
+   Complete 0
+
   8. 
+  `grep "Complete" 02_CHECK_V/BGR_*/MVP_02_BGR_*_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv > 8.csv`
+   `> 8.csv` -> to create a textfile with the solution
+
+
   9. 
-  10. 
+    * In what samples were the complete viruses found?
+     -> in BGR_131021, BGR_140121 and BGR_140717
+    * Are they integrated proviruses?
+     -> nope
+    * How long are they?
+     -> BGR_131021: 46113
+     -> BGR_140121: 34619
+     -> BGR_140717: 31258 
+    * How many viral hallmark genes do they have?
+     -> BGR_131021: 6
+     -> BGR_140121: 10
+     -> BGR_140717: 10 
+    * What percentage of the viral genes are viral hallmark genes? You may round to full numbers.
+     -> BGR_131021: 12 viral genes so 50% viral hallmark genes
+     -> BGR_140121: 24 viral genes so 42% viral hallmark genes
+     -> BGR_140717: 21 viral genes so 48% viral hallmark genes
+    * Thinking for yourself: Why are there more genes (gene_count) than viral genes and host genes combined? Tip: What does the column gene_count tell us?
+     -> gene_count tell us the total number of genes predicted on it
+     -> so there are more genes than viral genes and host genes combined because many genes are unclassified so they don´t count as viral genes or viral hallmark genes
+
+  10. Clustering Output: difference between the three tsv files
+    -> there is unfiltered, filtered and filtered + representative. In the unfiltered file is everthing. In the filtered file is everthing, that wasn´t filtered out, because it wasn´t a virus like thin. The filtered and representative file just have one representative bin there for each.
+
   11. 
+ `grep -c "" 03_CLUSTERING/MVP_03_All_Sample_Filtered_Relaxed_Merged_Genomad_CheckV_Representative_Virus_Proviruses_Quality_Summary.tsv`
+   -> 5375 cluster representatives
+
   12. 
-  13. 
-  14. 
-  15. 
-  16. 
-  17. 
+ `cut -f 5 03_CLUSTERING/MVP_03_All_Sample_Filtered_Relaxed_Merged_Genomad_CheckV_Representative_Virus_Proviruses_Quality_Summary.tsv | grep -c "Yes"`
+   -> `grep -c "Yes"` because we just wanted to count the ones that were actually with proviruses
+   -> 91 are proviruses
+
+  13. What clusters do the complete viruses from 8) belong to? How large are the clusters?
+   -> unique virus_id: 
+   BGR_131021_NODE_96_length_46113_cov_32.412567
+   BGR_140121_NODE_54_length_34619_cov_66.823718
+   BGR_140717_NODE_168_length_31258_cov_37.020094
+   `grep -e "BGR_131021_NODE_96_length_46113_cov_32.412567" -e "BGR_140121_NODE_54_length_34619_cov_66.823718" -e "BGR_140717_NODE_168_length_31258_cov_37.020094" 03_CLUSTERING/MVP_03_All_Sample_Filtered_Relaxed_Merged_Genomad_CheckV_Representative_Virus_Proviruses_Quality_Summary.tsv`
+
+
+   BGR_131021_NODE_96_length_46113_cov_32.412567	BGR_131021_NODE_96_length_46113_cov_32.412567,BGR_130829_NODE_285_length_18697_cov_26.889014,BGR_130925_NODE_229_length_19502_cov_14.312747,BGR_130925_NODE_141_length_27707_cov_13.801208,BGR_130829_NODE_713_length_9520_cov_30.608875,BGR_130829_NODE_699_length_9615_cov_30.338912,BGR_130829_NODE_324_length_17453_cov_27.959938	BGR_131021	46113	No	53	12	2	Complete	High-quality	100.0DTR (high-confidence)	1.0		11	0.9741	6	26.0838	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes	dsDNA	Prokaryote
+    -> **7 Virus IDs**
+
+
+   BGR_140121_NODE_54_length_34619_cov_66.823718	BGR_140121_NODE_54_length_34619_cov_66.823718,BGR_140221_NODE_108_length_34115_cov_16.844598,BGR_140320_NODE_81_length_29543_cov_29.496609,BGR_140821_NODE_2390_length_3137_cov_7.984101,BGR_141022_NODE_3686_length_2801_cov_14.556082,BGR_140320_NODE_2744_length_2659_cov_15.275730,BGR_130305_NODE_4045_length_2973_cov_59.104181,BGR_141022_NODE_4172_length_2586_cov_16.268669,BGR_150108_NODE_3086_length_2780_cov_10.336514,BGR_130527_NODE_4596_length_2616_cov_14.925029,BGR_130925_NODE_3974_length_2359_cov_11.524740,BGR_140919_NODE_5494_length_2186_cov_12.972783,BGR_141022_NODE_5999_length_2061_cov_31.139083,BGR_131021_NODE_10677_length_1861_cov_7.460133,BGR_140821_NODE_6440_length_1569_cov_3.940555,BGR_140320_NODE_3232_length_2377_cov_5.028854,BGR_150108_NODE_6896_length_1666_cov_38.685909,BGR_130925_NODE_8017_length_1619_cov_18.003836,BGR_140821_k141_52915_length_1214_cov_8.0000,BGR_131021_NODE_6902_length_2517_cov_5.516653,BGR_130829_k141_4358_length_1184_cov_20.0144,BGR_130925_k141_23197_length_1060_cov_20.8466,BGR_130829_NODE_12350_length_1519_cov_13.954918,BGR_130305_k141_6566_length_1327_cov_14.0000,BGR_150108_k141_43350_length_1063_cov_24.0000	BGR_140121	34619	No	47	24	0	Complete	High-quality	100.0	DTR (high-confidence)1.0		11	0.9812	10	41.8446	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes	dsDNA	Prokaryote
+    -> **25 Virus IDs**
+
+
+   BGR_140717_NODE_168_length_31258_cov_37.020094	BGR_140717_NODE_168_length_31258_cov_37.020094,BGR_130829_NODE_4298_length_2731_cov_17.951420,BGR_130925_NODE_3352_length_2611_cov_9.501174,BGR_140919_NODE_6367_length_1998_cov_27.025219,BGR_130829_NODE_11382_length_1587_cov_17.503916,BGR_140821_NODE_6386_length_1578_cov_11.059750,BGR_141022_NODE_9267_length_1584_cov_17.466318,BGR_141022_NODE_8692_length_1646_cov_8.513514,BGR_130305_k141_4034_length_1514_cov_24.1129,BGR_130708_k141_82351_length_1001_cov_17.0000,BGR_130708_k141_146703_length_1144_cov_13.0419	BGR_140717	31258	No	44	21	0	Complete	High-quality	100.0	DTR (medium-confidence)	1.0		11	0.9818	10	40.2292	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes	dsDNA	Prokaryote
+    -> **11 Virus IDs**
+
+
+  14. Thinking for yourself: Now we want to look at abundances. The files can be found in 04_READ_MAPPING, split per sample. Open any of the CoverM files and ignore everything except the first two columns. What does this file tell you, conceptionally? Meaning: What do the lines in this file represent (i.e. what kind of data is described in line 2, line 3, .....), who do the IDs listed in the second column belong to, what kind of data was combined to generate this file, and what can we learn from it? 
+   -> every CoverM file contains a sample which is mapped against all the viral cluster representatives.
+
+
+  15. Thinking for yourself: If you scroll through the CoverM file you selected, you will come across lines where all of the metrics (except length) are zero. How could this have happened? Is it a bug or a feature?!
+   -> These zero value are there because no reads from this sample are mapped to the viral references
+
+  16. Merge all CoverM files for all the samples (order doesn't matter) using e.g. the cat command (not cut). Remember to exclude the headers and keep only one. Your finished file should have 96733 lines total.
+   -> `grep --no-filename -v "Sample" 04_READ_MAPPING/BGR_*/*_CoverM.tsv >04_READ_MAPPING/all_coverm_temp.tsv ; grep "Sample" 04_READ_MAPPING/BGR_150108/BGR_150108_CoverM.tsv >04_READ_MAPPING/temp_tmp.tsv ; cat 04_READ_MAPPING/temp_tmp.tsv 04_READ_MAPPING/all_coverm_temp.tsv >04_READ_MAPPING/all_coverm.tsv`
+   -> change path: cd $WORK/viromics/04_READ_MAPPING
+   -> `grep -c "" all_coverm.tsv`
+   -> 96733
+
+
+  17. Using the file you just created, how abundant are the complete viruses in different samples (RPKM)? Create a table.
+   -> `grep -e "BGR_131021_NODE_96_length_46113_cov_32.412567" -e "BGR_140121_NODE_54_length_34619_cov_66.823718" -e "BGR_140717_NODE_168_length_31258_cov_37.020094" 04_READ_MAPPING/all_coverm.tsv; for x in "BGR_131021_NODE_96_length_46113_cov_32.412567" "BGR_140121_NODE_54_length_34619_cov_66.823718"  "BGR_140717_NODE_168_length_31258_cov_37.020094" ; do grep "$x" 04_READ_MAPPING/all_coverm.tsv | cut -f1,2,11 ; done > EVERTHING_EVERYWHERE_ALL_AT_ONCE.tsv`
+
+   -> output from EVERTHING_EVERYWHERE_ALL_AT_ONCE.tsv
+   BGR_130305	BGR_131021_NODE_96_length_46113_cov_32.412567	0.0
+   BGR_130527	BGR_131021_NODE_96_length_46113_cov_32.412567	0.0
+   BGR_130708	BGR_131021_NODE_96_length_46113_cov_32.412567	10.156808
+   BGR_130829	BGR_131021_NODE_96_length_46113_cov_32.412567	201.0595
+   BGR_130925	BGR_131021_NODE_96_length_46113_cov_32.412567	189.07722
+   BGR_131021	BGR_131021_NODE_96_length_46113_cov_32.412567	154.71898
+   BGR_131118	BGR_131021_NODE_96_length_46113_cov_32.412567	11.161729
+   BGR_140106	BGR_131021_NODE_96_length_46113_cov_32.412567	31.22893
+   BGR_140121	BGR_131021_NODE_96_length_46113_cov_32.412567	17.252619
+   BGR_140221	BGR_131021_NODE_96_length_46113_cov_32.412567	0.60999864
+   BGR_140320	BGR_131021_NODE_96_length_46113_cov_32.412567	0.0
+   BGR_140423	BGR_131021_NODE_96_length_46113_cov_32.412567	13.359601
+   BGR_140605	BGR_131021_NODE_96_length_46113_cov_32.412567	9.183679
+   BGR_140717	BGR_131021_NODE_96_length_46113_cov_32.412567	0.12582351
+   BGR_140821	BGR_131021_NODE_96_length_46113_cov_32.412567	0.099048875
+   BGR_140919	BGR_131021_NODE_96_length_46113_cov_32.412567	0.0
+   BGR_141022	BGR_131021_NODE_96_length_46113_cov_32.412567	0.0
+   BGR_150108	BGR_131021_NODE_96_length_46113_cov_32.412567	2.3968215
+   BGR_130305	BGR_140121_NODE_54_length_34619_cov_66.823718	530.0747
+   BGR_130527	BGR_140121_NODE_54_length_34619_cov_66.823718	345.76505
+   BGR_130708	BGR_140121_NODE_54_length_34619_cov_66.823718	199.11523
+   BGR_130829	BGR_140121_NODE_54_length_34619_cov_66.823718	75.662476
+   BGR_130925	BGR_140121_NODE_54_length_34619_cov_66.823718	88.48908
+   BGR_131021	BGR_140121_NODE_54_length_34619_cov_66.823718	11.8905115
+   BGR_131118	BGR_140121_NODE_54_length_34619_cov_66.823718	2.9122066
+   BGR_140106	BGR_140121_NODE_54_length_34619_cov_66.823718	0.46738622
+   BGR_140121	BGR_140121_NODE_54_length_34619_cov_66.823718	1329.697
+   BGR_140221	BGR_140121_NODE_54_length_34619_cov_66.823718	210.0382
+   BGR_140320	BGR_140121_NODE_54_length_34619_cov_66.823718	472.9365
+   BGR_140423	BGR_140121_NODE_54_length_34619_cov_66.823718	16.567926
+   BGR_140605	BGR_140121_NODE_54_length_34619_cov_66.823718	3.1911626
+   BGR_140717	BGR_140121_NODE_54_length_34619_cov_66.823718	72.168
+   BGR_140821	BGR_140121_NODE_54_length_34619_cov_66.823718	100.86392
+   BGR_140919	BGR_140121_NODE_54_length_34619_cov_66.823718	152.32184
+   BGR_141022	BGR_140121_NODE_54_length_34619_cov_66.823718	200.0772
+   BGR_150108	BGR_140121_NODE_54_length_34619_cov_66.823718	267.48816
+   BGR_130305	BGR_140717_NODE_168_length_31258_cov_37.020094	197.46283
+   BGR_130527	BGR_140717_NODE_168_length_31258_cov_37.020094	161.75777
+   BGR_130708	BGR_140717_NODE_168_length_31258_cov_37.020094	113.52365
+   BGR_130829	BGR_140717_NODE_168_length_31258_cov_37.020094	43.803528
+   BGR_130925	BGR_140717_NODE_168_length_31258_cov_37.020094	46.017822
+   BGR_131021	BGR_140717_NODE_168_length_31258_cov_37.020094	6.9410787
+   BGR_131118	BGR_140717_NODE_168_length_31258_cov_37.020094	3.3950949
+   BGR_140106	BGR_140717_NODE_168_length_31258_cov_37.020094	3.1058502
+   BGR_140121	BGR_140717_NODE_168_length_31258_cov_37.020094	292.06485
+   BGR_140221	BGR_140717_NODE_168_length_31258_cov_37.020094	46.794453
+   BGR_140320	BGR_140717_NODE_168_length_31258_cov_37.020094	153.9964
+   BGR_140423	BGR_140717_NODE_168_length_31258_cov_37.020094	3.3980339
+   BGR_140605	BGR_140717_NODE_168_length_31258_cov_37.020094	2.0616696
+   BGR_140717	BGR_140717_NODE_168_length_31258_cov_37.020094	305.86407
+   BGR_140821	BGR_140717_NODE_168_length_31258_cov_37.020094	85.26142
+   BGR_140919	BGR_140717_NODE_168_length_31258_cov_37.020094	130.4371
+   BGR_141022	BGR_140717_NODE_168_length_31258_cov_37.020094	154.94527
+   BGR_150108	BGR_140717_NODE_168_length_31258_cov_37.020094	194.18689
+
+
+**Annotation**
   18. 
-  19. 
-  20. 
-  21. 
-  22. 
-  23. 
-  24. 
-  25. 
-  26. 
-  27. 
+ The .tsv files show gene annotations for the viral cluster representatives, with one using conservative and the other relaxed filtering (conservative has fewer lines). The .faa files contain the predicted protein sequences for cluster representatives and all viruses.
+
+  19. We will focus on the file with the conservative results. Find the lines regarding the complete viruses.
+
+  How many genes does the complete virus have?
+   -> BGR_131021_NODE_96_length_46113_cov_32.412567: 53
+   -> BGR_140121_NODE_54_length_34619_cov_66.823718: 47
+   -> BGR_140717_NODE_168_length_31258_cov_37.020094: 44
+
+  What kind of genes does this virus have? Look at the PHROGS_Category. (This can also be solved by using commands)
+  BGR_131021_NODE_96_length_46113_cov_32.412567
+
+   DNA, RNA and nucleotide metabolism
+   head and packaging
+   other
+   unknown
+ BGR_140121_NODE_54_length_34619_cov_66.823718
+
+   connector
+   DNA, RNA and nucleotide metabolism
+   head and packaging
+   lysis
+   other
+   tail
+   unknown
+ BGR_140717_NODE_168_length_31258_cov_37.020094
+
+   connector
+   DNA, RNA and nucleotide metabolism
+   head and packaging
+   lysis
+   other
+   tail
+   unknown
+
+
+  20. Reset the table so you can see all viruses again. Filter PHROGS_Category to moron, auxiliary metabolic gene and host takeover. If you look at the column PHROGS_GO_Annotation, you can see more general information related to the pathways. What kind of metabolism are the viruses involved in?
+   -> Pyrimidine, Purine, sulfur, nicotinade and nicotinamide, Selenocompound, Porphyrin and chlorophyll
+
+  21. While still looking at the results filtered for moron, auxiliary metabolic gene and host takeover: Are there any toxin genes? Briefly look up the function of them (What do they do, where do they occur, what does it mean for this virus and its host?)
+   -> Zot-like toxin (Zonular occludens toxin(Zot))
+   Function: Zot disrupts tight junctions between epithelial cells, increasing intestinal permeability.
+
+   Where it occurs: Originally described in Vibrio cholerae; also found in some bacteriophages that infect bacteria.
+
+   Implication for virus and host: If a virus carries a Zot-like gene, it may influence the host bacterium’s interaction with its environment (e.g., virulence) or help the virus manipulate host cells. It doesn’t make the virus infect humans directly, but it can affect bacterial pathogenicity.
+
+ **Binning** 
+  22. What does each line represent (focus on column 1,2,5)? What is the purpose of this table?
+   -> This table lists viral bin members (one virus per line), which are the cluster representatives from module 03. It combines previous results (quality, taxonomy, abundance). For each time point, it shows the covered fraction and RPKM, so we can see how abundant each virus is over time.
+
+  23. How many High-quality "viruses" are there after binning?
+   -> 9 -> I just counted in the quality_summary
+
+  24. Thinking for yourself: Filter the results so you can only see vBin_16 (or just highlight the corresponding 5 lines). The metrics for all bin members are the same. But membership_provirus has different values. What does this tell you about the vBin/vMAG 16?
+   ->  Binning groups viruses into vMAGs, so each vMAG contains the same virus. Virus 16 appears both as a provirus and free virus, suggesting it can do both lytic and lysogenic cycles.
+
+  25. Thinking for yourself: Are your complete viruses part of a bin? Why does this result make sense? Tip: Use the search function or grep!
+   ->  The complete viruses are not part of a bin. The purpose of binning is to restore a fragmented genome by grouping together the individual fragments based on coverage information. Since our complete viruses are, well, complete, we don't need to find their missing pieces. **(umformulieren)**
+
+
+ **Host prediction**
+  26. Understanding the output: Find this table and open it: 08_iPHoP/Host_prediction_to_genome_m90.csv. The input file to generate this table is 08_iPHoP/MVP_07_Filtered_conservative_Prokaryote_Host_Only_best_vBins_Representative_Unbinned_vOTUs_Sequences_iPHoP_Input_clean.fna. Based on the first column of the table and the name of the input file: What does each line represent? (Meaning: What kind of viruses are in this file?)
+
+ Tip: This is a csv file. So you might need to change the delimiter to comma when you open the file.
+    -> The input file contains the best vBins (written as vBin_number in the table, with vRhyme_number__sequenceID being individual sequences of that bin), and all unbinned vOTU representatives. Each line is one virus (unbinned vOTU representative, vMAG, or vBin member=binned vOTU representative), where a host could be predicted. Viruses without a prediction are not in the file. Hosts that start with BGR_* are MAGs from the dataset, while all other host identifyers are from reference databases.
+
+
+  27. What hosts were predicted for the complete viruses? From what habitat did the hosts come from?
+    -> (BGR_130829_bin.14.strict,) d__Bacteria;p__Bacillota_A;c__Clostridia;o__Tissierellales;f__Peptoniphilaceae;g__;s__,blast,90.50,iPHoP-RF;78.00
+    -> Habitat: Biogasreactor
+
+
   28. 
 
+Find an example for a virus with more than one host prediction
+
+    A) With closely related hosts
+    B) With distantly related hosts
+
+Be sure to look at the VirusID in column 1 carefully to make sure it is not just different viruses! Tip: You won't have to scroll very far...
+
+[For both A) and B)]: What might be the reason for this result? Discuss based on:
+
+        a. Biological reasoning
+        b. Prediction method
+    Hint:
+       
+       Look at the last 3 columns and think about what you learned about host prediction methods earlier today. Explanation of Main method (documentation):
+
+       blast: Score obtained only from blastn hits to host genomes
+
+       iPHoP-RF: Score obtained based on all host-based tools (blastn to host genomes, CRISPR hits, k-mer tools: WIsH, VHM, PHP)
+
+       CRISPR: Score obtained only from CRISPR hits
+
+
+        c. Potential contamination of the host MAG
+
+Tip: This might be a good addition for your protocol...
+
+A) 
+B)
+C)
 
 
 
@@ -943,7 +1337,7 @@ and maybe as well as additional steps:
 
 
 
-
+BGR_130305_NODE_1097_length_6048_cov_14.323544 -> der am weitesten entfernte
 
 
 
